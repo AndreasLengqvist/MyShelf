@@ -12,8 +12,8 @@ Kravspecifikation <br>
 https://docs.google.com/a/student.lnu.se/document/d/1pdC_q8dlvCFvFds9BNsp0Kz-9hrG6wmyoEEctEYv6ys/edit
 
 
-Kravtabell (kan komma att uppdateras under projektets gång) <br>
-
+Kravplan (kan komma att uppdateras under projektets gång) <br>
+https://docs.google.com/a/student.lnu.se/spreadsheet/ccc?key=0AvNweLyJ-71UdDF6aHFaU2hTRzB6aXh2ZHltY0FXTVE#gid=0
 
 
 
