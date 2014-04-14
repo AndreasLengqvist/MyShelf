@@ -13,3 +13,12 @@ https://docs.google.com/a/student.lnu.se/document/d/1pdC_q8dlvCFvFds9BNsp0Kz-9hr
 
 
 Kravtabell (kan komma att uppdateras under projektets gång) <br>
+
+
+
+
+Iterationsplan 0 <br>
+https://docs.google.com/a/student.lnu.se/spreadsheet/ccc?key=0AvNweLyJ-71UdExITHRvdVc5OUpNc0gybjRUVkRucUE&usp=drive_web#gid=0
+
+Iterationsplan 1 <br>
+https://docs.google.com/a/student.lnu.se/spreadsheet/ccc?key=0AvNweLyJ-71UdHpPQXk2QlBVeC04dFJZc0VKOHdOa0E&usp=drive_web#gid=0
