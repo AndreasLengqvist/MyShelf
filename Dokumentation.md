@@ -2,7 +2,9 @@ MyShelf
 =======
 
 
-Här samlar jag alla dokument som rör projektet:
+Här samlar jag alla dokument som rör projektet:<br>
+
+https://drive.google.com/folderview?id=0B_NweLyJ-71Ua2Q0bDZQRmwzTzg&usp=sharing
 
 Vision <br>
 https://docs.google.com/a/student.lnu.se/document/d/1yXUNDTEb-W9j9fxv1SNyPWjcIYJBlJmzuSwnQVlhza4/edit
