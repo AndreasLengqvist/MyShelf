@@ -1,6 +1,6 @@
 
 -- Hämtar och visar alla publiceringar.
-ALTER PROCEDURE usp_Get_All_Pub
+CREATE PROCEDURE appSchema.usp_Get_All_Pub
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -8,9 +8,9 @@ BEGIN
 			BEGIN
 				BEGIN TRY
 					
-						SELECT PubID, Publish.TypeID, Creator, Email, Title, Textfield, Filename, PubDate
-						FROM Publish INNER JOIN Type
-							ON Publish.TypeID=Type.TypeID
+						SELECT PubID, Publication.TypeID, Creator, Email, Title, Textfield, Filename, PubDate
+						FROM Publication INNER JOIN Type
+							ON Publication.TypeID=Type.TypeID
 						ORDER BY PubDate ASC;
 				END TRY
 				BEGIN CATCH
@@ -22,26 +22,26 @@ END
 
 
 -- Hämtar och visar en specifik publicering.
-ALTER PROCEDURE usp_Get_Spec_Pub
+CREATE PROCEDURE appSchema.usp_Get_Spec_Pub
 @PubID int = 0
 AS   
 BEGIN
 	SET NOCOUNT ON;
 	DECLARE @Setmsg varchar(40) = ''
 	
-		IF EXISTS(SELECT PubID FROM Publish WHERE PubID=@PubID) OR @PubID = 0
+		IF EXISTS(SELECT PubID FROM Publication WHERE PubID=@PubID) OR @PubID = 0
 			BEGIN
 				BEGIN TRY
-					IF EXISTS(SELECT @PubID FROM Publish WHERE PubID=@PubID)
-						SELECT PubID, Publish.TypeID, Creator, Email, Title, Textfield, Filename, PubDate
-						FROM Publish INNER JOIN Type
-							ON Publish.TypeID=Type.TypeID
+					IF EXISTS(SELECT @PubID FROM Publication WHERE PubID=@PubID)
+						SELECT PubID, Publication.TypeID, Creator, Email, Title, Textfield, Filename, PubDate
+						FROM Publication INNER JOIN Type
+							ON Publication.TypeID=Type.TypeID
 						WHERE PubID=@PubID
 						ORDER BY PubDate ASC;
 					ELSE
-						SELECT PubID, Publish.TypeID, Creator, Email, Title, Textfield, Filename, PubDate
-						FROM Publish INNER JOIN Type
-							ON Publish.TypeID=Type.TypeID
+						SELECT PubID, Publication.TypeID, Creator, Email, Title, Textfield, Filename, PubDate
+						FROM Publication INNER JOIN Type
+							ON Publication.TypeID=Type.TypeID
 						ORDER BY PubDate;
 				END TRY
 				BEGIN CATCH
@@ -60,7 +60,7 @@ END
 
 
 -- Publicera ett verk.
-ALTER PROCEDURE usp_Publish
+CREATE PROCEDURE appSchema.usp_Publish
 @PubID int output,
 @TypeID int = 0,
 @Creator varchar(25) = '',
@@ -75,7 +75,7 @@ BEGIN
 	BEGIN TRY
 	
 		INSERT INTO 
-		Publish (TypeID, Creator, Email, Title, Textfield, Filename)
+		Publication (TypeID, Creator, Email, Title, Textfield, Filename)
 		
 		VALUES 
 			 (@TypeID, @Creator, @Email, @Title, @Textfield, @Filename);
@@ -98,7 +98,7 @@ EXEC usp_Publish 1, 'Andreas', 'al223bn@student.lnu.se', 'TopGame', 'Hej hej hej
 
 
 -- Editera en publikation.
-CREATE PROCEDURE usp_Edit_Pub
+CREATE PROCEDURE appSchema.usp_Edit_Pub
 @PubID int = 0,
 @TypeID int = 0,
 @Creator varchar(25) = '',
@@ -111,11 +111,11 @@ BEGIN
 	SET NOCOUNT ON;
 	DECLARE @Setmsg varchar(40) = ''
 	
-	IF EXISTS(SELECT PubID FROM Publish WHERE PubID=@PubID)
+	IF EXISTS(SELECT PubID FROM Publication WHERE PubID=@PubID)
 		BEGIN
 			BEGIN TRY
 			
-				UPDATE Publish 
+				UPDATE Publication 
 				
 				SET 
 				TypeID = @TypeID,
@@ -144,17 +144,17 @@ END
 
 
 -- Radera en publikation.
-CREATE PROCEDURE usp_Delete_Pub
+CREATE PROCEDURE appSchema.usp_Delete_Pub
 @PubID int = 0
 AS
 BEGIN
 	SET NOCOUNT ON;
 	DECLARE @Setmsg varchar(40) = ''
 	
-	IF EXISTS(SELECT PubID FROM Publish WHERE PubID=@PubID)
+	IF EXISTS(SELECT PubID FROM Publication WHERE PubID=@PubID)
 		BEGIN
 			BEGIN TRY
-				DELETE Publish 
+				DELETE Publication 
 				WHERE PubID=@PubID;
 			END TRY
 			BEGIN CATCH
