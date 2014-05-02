@@ -59,5 +59,12 @@ namespace MyShelf.Pages
         {
             return Service.Get_All_Pub();
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            PlaceHolder2.Visible
+        }
+
+
     }
 }

@@ -58,8 +58,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Pages\SharedPages\Reset.css" />
+    <Content Include="Pages\SharedPages\StyleSheet.css" />
     <Content Include="Pages\Shelf.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Pages\Upload.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Infrastructure\ValidationExtensions.cs" />
@@ -69,6 +74,7 @@
     </Compile>
     <Compile Include="Model\DAL\DALBase.cs" />
     <Compile Include="Model\DAL\PubDAL.cs" />
+    <Compile Include="Model\Gallery.cs" />
     <Compile Include="Model\Publication.cs" />
     <Compile Include="Model\Service.cs" />
     <Compile Include="Pages\SharedPages\MasterPage.Master.cs">
@@ -85,6 +91,13 @@
     <Compile Include="Pages\Shelf.aspx.designer.cs">
       <DependentUpon>Shelf.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Upload.aspx.cs">
+      <DependentUpon>Upload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Upload.aspx.designer.cs">
+      <DependentUpon>Upload.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -96,7 +109,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="content\pictures\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

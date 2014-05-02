@@ -5,6 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>MyShelf - Discover yourself</title>
+    <link rel="stylesheet" href="Reset.css" />
+    <link rel="stylesheet" href="StyleSheet.css" />
 </head>
 <body>
 
@@ -14,6 +16,8 @@
         
         </asp:ContentPlaceHolder>
     </div>
+
+
     </form>
 
 </body>

@@ -26,6 +26,10 @@
                             <h2>
                                 <%#: Item.Creator %>
                             </h2>
+
+                            <asp:Image ID="ShelfImage" runat="server" ImageUrl='<%#  "~/content/pictures/" + Item.Filename %>' />
+
+
                         </section>
                     </ItemTemplate>
 
@@ -41,6 +45,9 @@
                     </EmptyDataTemplate>
 
                     <InsertItemTemplate>
+                        <asp:PlaceHolder ID="PlaceHolder1" runat="server" Visible="false">
+                            HEJ
+                        </asp:PlaceHolder>
                     </InsertItemTemplate>
 
                     <EditItemTemplate>
@@ -48,5 +55,14 @@
 
                 </asp:ListView>
 
+
+        <nav id="headmenu">
+            <ul>
+                <li>
+                    <asp:LinkButton CssClass="PublishButton" ID="LinkButton1" runat="server" OnClick="Button1_Click">Publish</asp:LinkButton>
+                    <a class="PublishButton" href="3biljett.html">Publish</a>
+                </li>
+            </ul>
+        </nav>
 
 </asp:Content>
