@@ -62,7 +62,7 @@
                             ID="RegularExpressionValidator" 
                             runat="server" 
                             ErrorMessage="Endast bilder av typerna gif, jpg eller png är tillåtna."
-                            ValidationExpression="^.*\.(gif|jpg|png)$" 
+                            ValidationExpression="^.*\.(gif|GIF|jpg|JPG|png|PNG)$" 
                             ControlToValidate="FileUploadPic" 
                             Text="*">
                         </asp:RegularExpressionValidator>

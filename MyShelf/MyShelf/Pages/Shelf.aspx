@@ -27,7 +27,7 @@
                                 <%#: Item.Creator %>
                             </h2>
 
-                            <asp:Image ID="ShelfImage" runat="server" ImageUrl='<%#  "~/content/pictures/" + Item.Filename %>' />
+                            <asp:Image ID="ShelfImage" runat="server" ImageUrl='<%#  "~/content/thumbnails/" + Item.Filename %>' />
 
 
                         </section>

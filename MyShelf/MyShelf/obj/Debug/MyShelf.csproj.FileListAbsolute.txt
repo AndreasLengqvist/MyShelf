@@ -7,3 +7,4 @@ C:\Users\Irene Lenqvist\Documents\GitHub\MyShelf\MyShelf\MyShelf\obj\Debug\MyShe
 C:\Users\Irene Lenqvist\Documents\GitHub\MyShelf\MyShelf\MyShelf\bin\MyShelf.dll
 C:\Users\Irene Lenqvist\Documents\GitHub\MyShelf\MyShelf\MyShelf\bin\MyShelf.pdb
 C:\Users\Irene Lenqvist\Documents\GitHub\MyShelf\MyShelf\MyShelf\obj\Debug\MyShelf.pdb
+C:\Users\Irene Lenqvist\Documents\GitHub\MyShelf\MyShelf\MyShelf\obj\Debug\MyShelf.csprojResolveAssemblyReference.cache
