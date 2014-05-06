@@ -58,10 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Pages\Publish.aspx" />
     <Content Include="Pages\SharedPages\Reset.css" />
     <Content Include="Pages\SharedPages\StyleSheet.css" />
     <Content Include="Pages\Shelf.aspx" />
-    <Content Include="Pages\Upload.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -77,6 +77,13 @@
     <Compile Include="Model\Gallery.cs" />
     <Compile Include="Model\Publication.cs" />
     <Compile Include="Model\Service.cs" />
+    <Compile Include="Pages\Publish.aspx.cs">
+      <DependentUpon>Publish.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Publish.aspx.designer.cs">
+      <DependentUpon>Publish.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SharedPages\MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -90,13 +97,6 @@
     </Compile>
     <Compile Include="Pages\Shelf.aspx.designer.cs">
       <DependentUpon>Shelf.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Upload.aspx.cs">
-      <DependentUpon>Upload.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Upload.aspx.designer.cs">
-      <DependentUpon>Upload.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

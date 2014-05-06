@@ -64,7 +64,7 @@ namespace MyShelf.Model
                     // Sålänge filnamnet finns Do.. efter det spara ner bilden.
                     do
                     {
-                        filename = String.Format("{0}{1}", i, extension);
+                        filename = String.Format("{0}({1}){2}", filenameonly, i, extension);
                         i += 1;
                     }
                     while (ImageExists(filename));
@@ -88,8 +88,8 @@ namespace MyShelf.Model
         static Gallery()
         {
             ApprovedExenstions = new Regex(@"^.*\.(gif|jpg|png)$");
-            PhysicalUploadedImagesPath = Path.Combine(AppDomain.CurrentDomain.GetData("APPBASE").ToString(), @"C:\Users\al223bn\Documents\GitHub\MyShelf\MyShelf\MyShelf\content\pictures\");
-            PhysicalUploadedThumbnailsPath = Path.Combine(AppDomain.CurrentDomain.GetData("APPBASE").ToString(), @"C:\Users\al223bn\Documents\GitHub\MyShelf\MyShelf\MyShelf\content\pictures\");
+            PhysicalUploadedImagesPath = Path.Combine(AppDomain.CurrentDomain.GetData("APPBASE").ToString(), @"C:\Users\Irene Lenqvist\Documents\GitHub\MyShelf\MyShelf\MyShelf\content");
+            PhysicalUploadedThumbnailsPath = Path.Combine(AppDomain.CurrentDomain.GetData("APPBASE").ToString(), @"C:\Users\Irene Lenqvist\Documents\GitHub\MyShelf\MyShelf\MyShelf\content");
 
             var invalidChars = new string(Path.GetInvalidFileNameChars());
             SantizePath = new Regex(string.Format("[{0}]", Regex.Escape(invalidChars)));

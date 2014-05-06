@@ -58,10 +58,7 @@
 
         <nav id="headmenu">
             <ul>
-                <li>
-                    <asp:LinkButton CssClass="PublishButton" ID="LinkButton1" runat="server" OnClick="Button1_Click">Publish</asp:LinkButton>
-                    <a class="PublishButton" href="3biljett.html">Publish</a>
-                </li>
+                <li><asp:HyperLink CssClass="PublishButton" ID="PublishButton1" runat="server" NavigateUrl='<%$ RouteUrl:routename=Publish %>' Text="Publish" /></li>
             </ul>
         </nav>
 

@@ -1,6 +1,7 @@
 ﻿using MyShelf.Model.DAL;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -27,6 +28,27 @@ namespace MyShelf.Model
         public IEnumerable<Publication> Get_All_Pub()
         {
             return PubDAL.Get_All_Pub();
+        }
+
+
+
+        // Kombinerad uppdaterings och lägga till-metod för filmer med validering.
+        public void Publish(Publication publication)
+        {
+
+            // Om objektet inte uppfyller affärsreglerna
+            ICollection<ValidationResult> validationResults;
+            if (!publication.Validate(out validationResults)) // Använder "extension method" för valideringen!
+            {
+                // Klassen finns under App_Infrastructure.
+                // ...kastas ett undantag med ett allmänt felmeddelande samt en referens 
+                // till samlingen med resultat av valideringen.
+                var ex = new ValidationException("Objektet klarade inte valideringen.");
+                ex.Data.Add("ValidationResults", validationResults);
+                throw ex;
+            }
+
+            PubDAL.Publish(publication);
         }
 
     }

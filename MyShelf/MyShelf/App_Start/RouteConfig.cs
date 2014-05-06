@@ -16,9 +16,9 @@ namespace MyShelf
             "~/Pages/Shelf.aspx");
 
 
-            //routes.MapPageRoute("MovieCreator",
-            //    "Film/Ny",
-            //    "~/Pages/MoviePages/MovieCreator.aspx");
+            routes.MapPageRoute("Publish",
+                "Shelf/Publish",
+                "~/Pages/Publish.aspx");
 
 
 

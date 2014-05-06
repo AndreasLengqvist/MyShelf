@@ -76,5 +76,50 @@ namespace MyShelf.Model.DAL
                 }
             }
         }
+
+        // Publicerar och sparar ner ett nytt verk till databasen.
+        public void Publish(Publication publication)
+        {
+            // Skapar och initierar ett anslutningsobjekt.
+            using (SqlConnection conn = CreateConnection())
+            {
+                try
+                {
+                    // Skapar ett SqlCommand-Objekt kontaktar vald lagrad procedur.
+                    SqlCommand cmd = new SqlCommand("usp_Publish", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Lägger till IN-parametrarna till den lagrade proceduren. (Den slöa metoden)
+                    cmd.Parameters.Add("@PubID", SqlDbType.Int, 4).Value = publication.PubID;
+                    cmd.Parameters.Add("@TypeID", SqlDbType.Int).Value = publication.TypeID;
+                    cmd.Parameters.Add("@Creator", SqlDbType.VarChar, 40).Value = publication.Creator;
+                    cmd.Parameters.Add("@Email", SqlDbType.VarChar, 40).Value = publication.Email;
+                    cmd.Parameters.Add("@Title", SqlDbType.VarChar, 40).Value = publication.Title;
+                    cmd.Parameters.Add("@Textfield", SqlDbType.VarChar, 2000).Value = publication.Textfield;
+                    cmd.Parameters.Add("@Filename", SqlDbType.VarChar, 40).Value = publication.Filename;
+
+
+                    // Öppnar anslutningen till databasen.
+                    conn.Open();
+
+                    // Eftersom det är en INSERT-sats så behövs det inte retunera några poster. Därför använder jag ExecuteNonQuery.
+                    cmd.ExecuteNonQuery();
+
+                    // Hämtar primärnyckelns värde för den nya posten och tilldelar Movie-objektet värdet.
+                    publication.PubID = (int)cmd.Parameters["@PubID"].Value;
+                }
+                catch
+                {
+                    // Kastar ett eget undantag om ett undantag kastas.
+                    throw;
+                    //throw new ApplicationException("An error occured in the data access layer.");
+                }
+            }
+        }
+
     }
 }
+    
+
+
+    

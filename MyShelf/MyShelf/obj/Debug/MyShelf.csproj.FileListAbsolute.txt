@@ -3,3 +3,7 @@ C:\Users\al223bn\Documents\GitHub\MyShelf\MyShelf\MyShelf\bin\MyShelf.dll
 C:\Users\al223bn\Documents\GitHub\MyShelf\MyShelf\MyShelf\bin\MyShelf.pdb
 C:\Users\al223bn\Documents\GitHub\MyShelf\MyShelf\MyShelf\obj\Debug\MyShelf.dll
 C:\Users\al223bn\Documents\GitHub\MyShelf\MyShelf\MyShelf\obj\Debug\MyShelf.pdb
+C:\Users\Irene Lenqvist\Documents\GitHub\MyShelf\MyShelf\MyShelf\obj\Debug\MyShelf.dll
+C:\Users\Irene Lenqvist\Documents\GitHub\MyShelf\MyShelf\MyShelf\bin\MyShelf.dll
+C:\Users\Irene Lenqvist\Documents\GitHub\MyShelf\MyShelf\MyShelf\bin\MyShelf.pdb
+C:\Users\Irene Lenqvist\Documents\GitHub\MyShelf\MyShelf\MyShelf\obj\Debug\MyShelf.pdb
