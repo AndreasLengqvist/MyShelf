@@ -15,33 +15,23 @@
                     DataKeyNames="PubID"
                     InsertItemPosition="LastItem">
                 <LayoutTemplate>
-
-                    <%-- Platshållare för nya rader --%>
-                        <asp:PlaceHolder ID="itemPlaceholder" runat="server" />
+                    <div class="page-wrap">
+                        <table>
+                            <tr>
+                            <asp:PlaceHolder ID="itemPlaceholder" runat="server" />
+                            </tr>
+                        </table>
+                    </div>
                 </LayoutTemplate>
                     <ItemTemplate>
                     <%-- Mall för nya rader. --%>
-                        <section class="movieposters">
-                            
-                            <h2>
-                                <%#: Item.Creator %>
-                            </h2>
-
-                            <asp:Image ID="ShelfImage" runat="server" ImageUrl='<%#  "~/content/thumbnails/" + Item.Filename %>' />
-
-
-                        </section>
+                        <td>
+                            <asp:Image CssClass="ShelfImage" ID="ShelfImages" runat="server" ImageUrl='<%#  "~/content/thumbnails/" + Item.Filename %>' />
+                        </td>
                     </ItemTemplate>
 
                     <EmptyDataTemplate>
-                        <%-- Detta visas då kunduppgifter saknas i databasen. --%>
-                        <table class="grid">
-                            <tr>
-                                <td>
-                                    Det finns inga filmer i databasen.
-                                </td>
-                            </tr>
-                        </table>
+
                     </EmptyDataTemplate>
 
                     <InsertItemTemplate>
@@ -56,10 +46,5 @@
                 </asp:ListView>
 
 
-        <nav id="headmenu">
-            <ul>
-                <li><asp:HyperLink CssClass="PublishButton" ID="PublishButton1" runat="server" NavigateUrl='<%$ RouteUrl:routename=Publish %>' Text="Publish" /></li>
-            </ul>
-        </nav>
 
 </asp:Content>

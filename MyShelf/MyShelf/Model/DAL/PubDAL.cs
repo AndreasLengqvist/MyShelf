@@ -41,6 +41,7 @@ namespace MyShelf.Model.DAL
                         var textfieldIndex = reader.GetOrdinal("Textfield");
                         var filenameIndex = reader.GetOrdinal("Filename");
                         var pubdateeIndex = reader.GetOrdinal("PubDate");
+                        var typeIndex = reader.GetOrdinal("Type");
 
 
                         // Hämtar ut poster så länge det finns poster att hämta så kör while-loopen.
@@ -56,7 +57,8 @@ namespace MyShelf.Model.DAL
                                 Title = reader.GetString(titleIndex),
                                 Textfield = reader.GetString(textfieldIndex),
                                 Filename = reader.GetString(filenameIndex),
-                                PubDate = reader.GetDateTime(pubdateeIndex)
+                                PubDate = reader.GetDateTime(pubdateeIndex),
+                                Type = reader.GetString(typeIndex)
 
                             });
                         }

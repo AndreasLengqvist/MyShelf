@@ -2,6 +2,8 @@
     background:#e5eecc;
     font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
     margin:0 auto;
+    width:10000px;
+    height:500px;
 }
 
 
@@ -18,6 +20,7 @@ nav#headmenu ul
     padding-bottom:20px;
     border-radius:35px;
     text-align:center;
+    opacity:0.7;
 }
 
 nav#headmenu li 
@@ -160,3 +163,22 @@ nav#rightmenu li a.Admin:hover
     background: -ms-linear-gradient(top, #565050 0%,#888282 100%); 
     background: linear-gradient(to bottom, #565050 0%,#888282 100%);
 }*/
+
+.page-wrap {
+    margin-left: 100px;
+}
+
+td {
+    position:relative;
+    float:left;
+    background:grey;
+    width:500px;
+    height:400px;
+    margin-left:30px;
+    padding:20px;
+    text-align:center;
+}
+
+img {
+    max-width:100%;
+}

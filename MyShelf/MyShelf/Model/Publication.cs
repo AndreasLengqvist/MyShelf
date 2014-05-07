@@ -26,5 +26,7 @@ namespace MyShelf.Model
         public string Filename { get; set; }
 
         public DateTime PubDate { get; set; }
+
+        public string Type { get; set; }
     }
 }

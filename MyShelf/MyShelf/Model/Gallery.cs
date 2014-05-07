@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -70,9 +72,10 @@ namespace MyShelf.Model
                     while (ImageExists(filename));
 
                 image.Save(Path.Combine(PhysicalUploadedImagesPath + filename));
-                var thumbnail = image.GetThumbnailImage(100, 150, null, System.IntPtr.Zero);
-                thumbnail.Save(Path.Combine(PhysicalUploadedThumbnailsPath + filename)); // path -> fullständig fysisk filnamn inklusive sökväg.
 
+                var imgPhoto = ScaleByPercent(image, 10);
+                imgPhoto.Save(Path.Combine(PhysicalUploadedThumbnailsPath + filename)); // path -> fullständig fysisk filnamn inklusive sökväg.
+                imgPhoto.Dispose();
                 i = 0;
                 return filename;
             }
@@ -82,6 +85,38 @@ namespace MyShelf.Model
             }
 
 
+        }
+
+        // Funktion som anropas för att skala ner en bild, även denna bild som syns i bokhyllan.
+        static Image ScaleByPercent(Image imgPhoto, int Percent)
+        {
+            float nPercent = ((float)Percent / 100);
+
+            int sourceWidth = imgPhoto.Width;
+            int sourceHeight = imgPhoto.Height;
+            int sourceX = 0;
+            int sourceY = 0;
+
+            int destX = 0;
+            int destY = 0;
+            int destWidth = (int)(sourceWidth * nPercent);
+            int destHeight = (int)(sourceHeight * nPercent);
+
+            Bitmap bmPhoto = new Bitmap(destWidth, destHeight,
+                                     PixelFormat.Format24bppRgb);
+            bmPhoto.SetResolution(imgPhoto.HorizontalResolution,
+                                    imgPhoto.VerticalResolution);
+
+            Graphics grPhoto = Graphics.FromImage(bmPhoto);
+            grPhoto.InterpolationMode = InterpolationMode.HighQualityBicubic;
+
+            grPhoto.DrawImage(imgPhoto,
+                new Rectangle(destX, destY, destWidth, destHeight),
+                new Rectangle(sourceX, sourceY, sourceWidth, sourceHeight),
+                GraphicsUnit.Pixel);
+
+            grPhoto.Dispose();
+            return bmPhoto;
         }
 
 

@@ -168,3 +168,24 @@ BEGIN
 			RAISERROR(@SetMsg, 16, 1)
 		END
 END
+
+
+-- Hämtar alla typer --
+CREATE PROCEDURE appSchema.usp_Get_All_Type
+AS
+BEGIN
+	SET NOCOUNT ON;
+	DECLARE @Setmsg varchar(40) = ''
+			BEGIN
+				BEGIN TRY
+					
+						SELECT TypeID, Type
+						FROM Type
+						ORDER BY Type;
+				END TRY
+				BEGIN CATCH
+					SET @SetMsg = 'Fel vid körning av proceduren!'
+					RAISERROR(@SetMsg, 16, 1)
+				END CATCH
+			END
+END
