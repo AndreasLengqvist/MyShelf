@@ -4,9 +4,9 @@
    
 
     <%-- Om skapande/borttagning/ändring blir gjord uppdateras SuccessLabeln(session) till sitt resultatvärde. --%>
-    <div>
+<%--    <div>
         <asp:Label CssClass="SuccessLabel" ID="SuccessLabel" runat="server" Text="Label" Visible="false"></asp:Label><br />
-    </div>
+    </div>--%>
 
 
         <asp:ListView ID="PubListView" runat="server"
@@ -15,19 +15,20 @@
                     DataKeyNames="PubID"
                     InsertItemPosition="LastItem">
                 <LayoutTemplate>
-                    <div class="page-wrap">
-                        <table>
-                            <tr>
+                    <div class="ShelfWrapper">
+<%--                        <table>
+                            <tr>--%>
                             <asp:PlaceHolder ID="itemPlaceholder" runat="server" />
-                            </tr>
-                        </table>
+<%--                            </tr>
+                        </table>--%>
                     </div>
                 </LayoutTemplate>
                     <ItemTemplate>
                     <%-- Mall för nya rader. --%>
-                        <td>
-                            <asp:Image CssClass="ShelfImage" ID="ShelfImages" runat="server" ImageUrl='<%#  "~/content/thumbnails/" + Item.Filename %>' />
-                        </td>
+                        <div class="ShelfImageWrapper">
+                            <asp:Label CssClass="ShelfTitle" ID="Label1" runat="server" Text='<%#  Item.Title %>'></asp:Label>
+                            <asp:Image CssClass="ShelfImages" ID="ShelfImages" runat="server" ImageUrl='<%#  "~/content/thumbnails/" + Item.Filename %>' />
+                        </div>
                     </ItemTemplate>
 
                     <EmptyDataTemplate>
@@ -45,6 +46,11 @@
 
                 </asp:ListView>
 
+        <nav id="headmenu">
+            <ul>
+                <li><asp:HyperLink CssClass="Button" ID="HyperLink1" runat="server" NavigateUrl='<%$ RouteUrl:routename=Publish %>' /></li>
+            </ul>
+        </nav>
 
 
 </asp:Content>

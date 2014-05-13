@@ -73,7 +73,8 @@ namespace MyShelf.Model
 
                 image.Save(Path.Combine(PhysicalUploadedImagesPath + filename));
 
-                var imgPhoto = ScaleByPercent(image, 10);
+                //var imgPhoto = ScaleByPercent(image, 10);
+                var imgPhoto = ScaleImage(image, 350);
                 imgPhoto.Save(Path.Combine(PhysicalUploadedThumbnailsPath + filename)); // path -> fullständig fysisk filnamn inklusive sökväg.
                 imgPhoto.Dispose();
                 i = 0;
@@ -87,37 +88,23 @@ namespace MyShelf.Model
 
         }
 
-        // Funktion som anropas för att skala ner en bild, även denna bild som syns i bokhyllan.
-        static Image ScaleByPercent(Image imgPhoto, int Percent)
+        public static Image ScaleImage(Image image, int maxHeight)
         {
-            float nPercent = ((float)Percent / 100);
+            var ratio = (double)maxHeight / image.Height;
 
-            int sourceWidth = imgPhoto.Width;
-            int sourceHeight = imgPhoto.Height;
-            int sourceX = 0;
-            int sourceY = 0;
+            var newWidth = (int)(image.Width * ratio);
+            var newHeight = (int)(image.Height * ratio);
 
-            int destX = 0;
-            int destY = 0;
-            int destWidth = (int)(sourceWidth * nPercent);
-            int destHeight = (int)(sourceHeight * nPercent);
+            var newImage = new Bitmap(newWidth, newHeight);
+            using (var g = Graphics.FromImage(newImage))
+            {
+                g.DrawImage(image, 0, 0, newWidth, newHeight);
+            }
+            return newImage;
+        } 
 
-            Bitmap bmPhoto = new Bitmap(destWidth, destHeight,
-                                     PixelFormat.Format24bppRgb);
-            bmPhoto.SetResolution(imgPhoto.HorizontalResolution,
-                                    imgPhoto.VerticalResolution);
 
-            Graphics grPhoto = Graphics.FromImage(bmPhoto);
-            grPhoto.InterpolationMode = InterpolationMode.HighQualityBicubic;
-
-            grPhoto.DrawImage(imgPhoto,
-                new Rectangle(destX, destY, destWidth, destHeight),
-                new Rectangle(sourceX, sourceY, sourceWidth, sourceHeight),
-                GraphicsUnit.Pixel);
-
-            grPhoto.Dispose();
-            return bmPhoto;
-        }
+        // Funktion som anropas för att skala ner en bild, även denna bild som syns i bokhyllan.
 
 
         static Gallery()

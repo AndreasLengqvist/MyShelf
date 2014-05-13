@@ -59,7 +59,11 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Pages\Publish.aspx" />
+    <Content Include="Pages\SharedPages\background.png" />
+    <Content Include="Pages\SharedPages\hover.js" />
     <Content Include="Pages\SharedPages\mousewheel.min.js" />
+    <Content Include="Pages\SharedPages\publishbutton.png" />
+    <Content Include="Pages\SharedPages\publish_button.png" />
     <Content Include="Pages\SharedPages\Reset.css" />
     <Content Include="Pages\SharedPages\StyleSheet.css" />
     <Content Include="Pages\Shelf.aspx" />
