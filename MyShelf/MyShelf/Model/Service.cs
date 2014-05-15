@@ -13,7 +13,7 @@ namespace MyShelf.Model
     {
 
         private PubDAL _pubDAL;
-
+        private TypeDAL _typeDAL;
 
         // Ett PubDAL-objekt skapas med hjälp av Lazy initialization.
         private PubDAL PubDAL
@@ -21,7 +21,11 @@ namespace MyShelf.Model
             get { return _pubDAL ?? (_pubDAL = new PubDAL()); }
         }
 
-
+        // Ett TypeDAL-objekt skapas med hjälp av Lazy initialization.
+        private TypeDAL TypeDAL
+        {
+            get { return _typeDAL ?? (_typeDAL = new TypeDAL()); }
+        }
 
 
         // Hämtar alla filmer som finns lagrade i databasen.
@@ -51,5 +55,10 @@ namespace MyShelf.Model
             PubDAL.Publish(publication);
         }
 
+
+        public IEnumerable<Types> Get_All_Types()
+        {
+            return TypeDAL.Get_All_Types();
+        }
     }
 }

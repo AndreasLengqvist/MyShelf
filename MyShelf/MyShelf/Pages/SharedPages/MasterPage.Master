@@ -9,11 +9,17 @@
     <link rel="stylesheet" href="StyleSheet.css" />
     <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2'></script>
     <script type='text/javascript' src='Pages\SharedPages\mousewheel.min.js'></script>
+    <script type='text/javascript' src='Pages\SharedPages\publish.js'></script>
+
     <script>
 
+        //window.onresize = function(event) {
+        //    var bWidth = $(".floor").width();
+        //    $(".wall").width(bWidth);
+        //    console.log(bWidth.width);
+        //}
+
         $(function () {
-            $(".ShelfWrapper").wrapInner("<table><tr>");
-            $(".ShelfImageWrapper").wrap("<td></td>");
             $("body").mousewheel(function (event, delta) {
                 this.scrollLeft -= (delta * 30);
                 event.preventDefault();
@@ -23,15 +29,16 @@
 	</script>
 </head>
 <body>
+    <div class="floor">
+         
 
-    <form id="form1" runat="server">
+        <form id="form1" runat="server">
 
-
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
-        </asp:ContentPlaceHolder>
+            </asp:ContentPlaceHolder>
 
-
-    </form>
+        </form>
+    </div>
 </body>
 </html>

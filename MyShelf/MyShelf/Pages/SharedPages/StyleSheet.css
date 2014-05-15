@@ -1,11 +1,7 @@
 ﻿body {
-    background-image:url('background.png');
-    background-size:63%;
     font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
     margin:0 auto;
-    max-height:100%;
-    overflow:hidden;
-    padding:50px;
+    background:#2B1B17;
 }
 
 
@@ -46,7 +42,7 @@ nav#headmenu li a.SortButton:hover
     background: linear-gradient(to bottom, #565050 0%,#888282 100%);
 }*/
 
-nav#headmenu li a.Button
+nav#headmenu li a.publish_Button
 {
     position:fixed;
     bottom:-28px;
@@ -62,10 +58,29 @@ nav#headmenu li a.Button
     background-size:70%;
     width: 650px;
     height: 76px;
-    opacity:0.6;
+    opacity:0.9;
 }
 
-nav#headmenu li a.Button:hover
+nav#headmenu li a.back_Button
+{
+    position:fixed;
+    bottom:-28px;
+    left:-175px;
+    list-style:none;
+    -webkit-transform: rotate(40deg);
+    -moz-transform: rotate(40deg);
+    -ms-transform: rotate(40deg);
+    -o-transform: rotate(40deg);
+    transform:rotate(40deg);
+    background-image: url(backbutton.png);
+    background-repeat:no-repeat;
+    background-size:70%;
+    width: 650px;
+    height: 76px;
+    opacity:0.9;
+}
+
+nav#headmenu li a.publish_Button:hover
 {
     position:fixed;
     bottom:-28px;
@@ -81,7 +96,26 @@ nav#headmenu li a.Button:hover
     background-size:70%;
     width: 650px;
     height: 76px;
-    opacity:initial;
+    opacity:0.7;
+}
+
+nav#headmenu li a.back_Button:hover
+{
+    position:fixed;
+    bottom:-28px;
+    left:-175px;
+    list-style:none;
+    -webkit-transform: rotate(40deg);
+    -moz-transform: rotate(40deg);
+    -ms-transform: rotate(40deg);
+    -o-transform: rotate(40deg);
+    transform:rotate(40deg);
+    background-image: url(backbutton.png);
+    background-repeat:no-repeat;
+    background-size:70%;
+    width: 650px;
+    height: 76px;
+    opacity:0.7;
 }
 
 /*nav#headmenu li a.HelpButton
@@ -164,19 +198,27 @@ nav#rightmenu li a.Admin:hover
     background: linear-gradient(to bottom, #565050 0%,#888282 100%);
 }*/
 
-table {
-    border-spacing: 30px;
+.ShelfWrapper {
+    white-space: nowrap;
+    margin-top:150px;
 }
 
-tr {
-    vertical-align: top;
-}
-
-.ShelfImageWrapper {
-    margin-top:50px;
+.blur {
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    filter: blur(5px);
+    display:inline-block;
     margin-left:100px;
     margin-right:100px;
 }
+
+.ShelfImageWrapper {
+    display:inline-block;
+    margin-left:100px;
+    margin-right:100px;
+}
+
 
 img.ShelfImages {
     box-shadow: -13px -15px 20px rgba(0,0,0,0.4);
@@ -184,11 +226,75 @@ img.ShelfImages {
 }
 
 .ShelfTitle {
-    position:relative;
-    top:23px;
     color:white;
     background:black;
     font-family:"Lucida Console";
     font-size:1.3em;
     opacity:0.8;
+    -webkit-box-reflect: below 1px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(50%, transparent), to(rgba(255,255,255,0.7)));
+}
+
+.BlurryContent {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background:#1e1e1e;
+    opacity:0.5;
+    text-align:center;
+}
+
+.PublishContent {
+    position:fixed;
+    top:20%;
+    left:25%;
+    height:400px;
+    width:700px;
+    background:#DADADA;
+    border-radius:8px;
+    border-right:3px solid #FFFFFF;
+    border-left:1px solid #FFFFFF;
+    border-bottom:3px solid #FFFFFF;
+    border-top:1px solid #FFFFFF;
+    box-shadow:5px 5px 10px;
+    z-index:9999;
+}
+
+.TextBoxTextfield {
+    resize:none;
+}
+
+
+.hideBlur {
+    visibility:hidden;
+    opacity:0;
+}
+
+.showBlur {
+    visibility:visible;
+    opacity:1;
+    z-index:99999;
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+
+.floor {
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    background: rgb(147,116,91);
+    background: -moz-linear-gradient(top,  rgba(147,116,91,1) 0%, rgba(10,9,9,1) 450px, rgba(10,9,9,1) 463px, rgba(12,12,11,1) 467px, rgba(12,12,11,1) 480px, rgba(20,19,18,1) 500px, rgba( 43, 27, 23,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(147,116,91,1)), color-stop(450px,rgba(10,9,9,1)), color-stop(463px,rgba(10,9,9,1)), color-stop(467px,rgba(12,12,11,1)), color-stop(480px,rgba(12,12,11,1)), color-stop(500px,rgba(20,19,18,1)), color-stop(100%,rgba( 43, 27, 23,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(147,116,91,1) 0%,rgba(10,9,9,1) 450px,rgba(10,9,9,1) 463px,rgba(12,12,11,1) 467px,rgba(12,12,11,1) 480px,rgba(20,19,18,1) 500px,rgba( 43, 27, 23,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(147,116,91,1) 0%,rgba(10,9,9,1) 450px,rgba(10,9,9,1) 463px,rgba(12,12,11,1) 467px,rgba(12,12,11,1) 480px,rgba(20,19,18,1) 500px,rgba( 43, 27, 23,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(147,116,91,1) 0%,rgba(10,9,9,1) 450px,rgba(10,9,9,1) 463px,rgba(12,12,11,1) 467px,rgba(12,12,11,1) 480px,rgba(20,19,18,1) 500px,rgba( 43, 27, 23,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(147,116,91,1) 0%,rgba(10,9,9,1) 450px,rgba(10,9,9,1) 463px,rgba(12,12,11,1) 467px,rgba(12,12,11,1) 480px,rgba(20,19,18,1) 500px,rgba( 43, 27, 23,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93745b', endColorstr='#876a59',GradientType=0 ); /* IE6-9 */
+
 }

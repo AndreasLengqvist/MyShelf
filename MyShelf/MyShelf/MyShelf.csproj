@@ -58,9 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Pages\Publish.aspx" />
     <Content Include="Pages\SharedPages\background.png" />
-    <Content Include="Pages\SharedPages\hover.js" />
+    <Content Include="Pages\SharedPages\backbutton.png" />
+    <Content Include="Pages\SharedPages\publish.js" />
     <Content Include="Pages\SharedPages\mousewheel.min.js" />
     <Content Include="Pages\SharedPages\publishbutton.png" />
     <Content Include="Pages\SharedPages\publish_button.png" />
@@ -79,16 +79,11 @@
     </Compile>
     <Compile Include="Model\DAL\DALBase.cs" />
     <Compile Include="Model\DAL\PubDAL.cs" />
+    <Compile Include="Model\DAL\TypeDAL.cs" />
     <Compile Include="Model\Gallery.cs" />
     <Compile Include="Model\Publication.cs" />
     <Compile Include="Model\Service.cs" />
-    <Compile Include="Pages\Publish.aspx.cs">
-      <DependentUpon>Publish.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Publish.aspx.designer.cs">
-      <DependentUpon>Publish.aspx</DependentUpon>
-    </Compile>
+    <Compile Include="Model\Type.cs" />
     <Compile Include="Pages\SharedPages\MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
