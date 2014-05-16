@@ -4,44 +4,6 @@
     background:#2B1B17;
 }
 
-
-nav#headmenu ul
-{
-
-}
-
-nav#headmenu li 
-{
-}
-
-/*nav#headmenu li a.SortButton
-{
-    position:absolute;
-    left:1%;
-    color:white;
-    font-size:0.8em;
-    padding:5px 15px 5px 15px;
-    border-radius:30px;
-    text-decoration:none;
-    border-color:black;
-    border-width:thin;
-    border-style:ridge;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4C4646), color-stop(100%,#7E7878)); 
-    background: -webkit-linear-gradient(top, #4C4646 0%,#7E7878 100%); 
-    background: -o-linear-gradient(top, #4C4646 0%,#7E7878 100%); 
-    background: -ms-linear-gradient(top, #4C4646 0%,#7E7878 100%); 
-    background: linear-gradient(to bottom, #4C4646 0%,#7E7878 100%);
-}
-
-nav#headmenu li a.SortButton:hover
-{
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#565050), color-stop(100%,#888282)); 
-    background: -webkit-linear-gradient(top, #565050 0%,#888282 100%); 
-    background: -o-linear-gradient(top, #565050 0%,#888282 100%); 
-    background: -ms-linear-gradient(top, #565050 0%,#888282 100%); 
-    background: linear-gradient(to bottom, #565050 0%,#888282 100%);
-}*/
-
 nav#headmenu li a.publish_Button
 {
     position:fixed;
@@ -118,85 +80,44 @@ nav#headmenu li a.back_Button:hover
     opacity:0.7;
 }
 
-/*nav#headmenu li a.HelpButton
+
+nav#headmenu li a.realpublish_Button
 {
-    color:white;
-    font-size:0.8em;
-    padding:5px 15px 5px 15px;
-    border-radius:30px;
-    text-decoration:none;
-    border-color:black;
-    border-width:thin;
-    border-style:ridge;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4C4646), color-stop(100%,#7E7878)); 
-    background: -webkit-linear-gradient(top, #4C4646 0%,#7E7878 100%); 
-    background: -o-linear-gradient(top, #4C4646 0%,#7E7878 100%); 
-    background: -ms-linear-gradient(top, #4C4646 0%,#7E7878 100%); 
-    background: linear-gradient(to bottom, #4C4646 0%,#7E7878 100%);
+    position:fixed;
+    bottom:90px;
+    right:-320px;
+    list-style:none;
+    -webkit-transform: rotate(-40deg);
+    -moz-transform: rotate(-40deg);
+    -ms-transform: rotate(-40deg);
+    -o-transform: rotate(-40deg);
+    transform:rotate(-40deg);
+    background-image: url(publish_button.png);
+    background-repeat:no-repeat;
+    background-size:70%;
+    width: 650px;
+    height: 76px;
+    opacity:0.9;
 }
 
-nav#headmenu li a.HelpButton:hover
+nav#headmenu li a.realpublish_Button:hover
 {
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#565050), color-stop(100%,#888282)); 
-    background: -webkit-linear-gradient(top, #565050 0%,#888282 100%); 
-    background: -o-linear-gradient(top, #565050 0%,#888282 100%); 
-    background: -ms-linear-gradient(top, #565050 0%,#888282 100%); 
-    background: linear-gradient(to bottom, #565050 0%,#888282 100%);
+    position:fixed;
+    bottom:90px;
+    right:-320px;
+    list-style:none;
+    -webkit-transform: rotate(-40deg);
+    -moz-transform: rotate(-40deg);
+    -ms-transform: rotate(-40deg);
+    -o-transform: rotate(-40deg);
+    transform:rotate(-40deg);
+    background-image: url(publish_button.png);
+    background-repeat:no-repeat;
+    background-size:70%;
+    width: 650px;
+    height: 76px;
+    opacity:0.7;
 }
-
-
-nav#rightmenu li a.AboutButton
-{
-    color:white;
-    font-size:0.8em;
-    padding:5px 15px 5px 15px;
-    border-radius:30px;
-    text-decoration:none;
-    border-color:black;
-    border-width:thin;
-    border-style:ridge;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4C4646), color-stop(100%,#7E7878)); 
-    background: -webkit-linear-gradient(top, #4C4646 0%,#7E7878 100%); 
-    background: -o-linear-gradient(top, #4C4646 0%,#7E7878 100%); 
-    background: -ms-linear-gradient(top, #4C4646 0%,#7E7878 100%); 
-    background: linear-gradient(to bottom, #4C4646 0%,#7E7878 100%);
-}
-
-nav#rightmenu li a.AboutButton:hover
-{
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#565050), color-stop(100%,#888282)); 
-    background: -webkit-linear-gradient(top, #565050 0%,#888282 100%); 
-    background: -o-linear-gradient(top, #565050 0%,#888282 100%); 
-    background: -ms-linear-gradient(top, #565050 0%,#888282 100%); 
-    background: linear-gradient(to bottom, #565050 0%,#888282 100%);
-}
-
-
-nav#rightmenu li a.AdminButton
-{
-    color:white;
-    font-size:0.8em;
-    padding:5px 15px 5px 15px;
-    border-radius:30px;
-    text-decoration:none;
-    border-color:black;
-    border-width:thin;
-    border-style:ridge;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4C4646), color-stop(100%,#7E7878)); 
-    background: -webkit-linear-gradient(top, #4C4646 0%,#7E7878 100%); 
-    background: -o-linear-gradient(top, #4C4646 0%,#7E7878 100%); 
-    background: -ms-linear-gradient(top, #4C4646 0%,#7E7878 100%); 
-    background: linear-gradient(to bottom, #4C4646 0%,#7E7878 100%);
-}
-
-nav#rightmenu li a.Admin:hover
-{
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#565050), color-stop(100%,#888282)); 
-    background: -webkit-linear-gradient(top, #565050 0%,#888282 100%); 
-    background: -o-linear-gradient(top, #565050 0%,#888282 100%); 
-    background: -ms-linear-gradient(top, #565050 0%,#888282 100%); 
-    background: linear-gradient(to bottom, #565050 0%,#888282 100%);
-}*/
 
 .ShelfWrapper {
     white-space: nowrap;
@@ -222,7 +143,7 @@ nav#rightmenu li a.Admin:hover
 
 img.ShelfImages {
     box-shadow: -13px -15px 20px rgba(0,0,0,0.4);
-    -webkit-box-reflect: below 1px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(50%, transparent), to(rgba(255,255,255,0.3)));
+    -webkit-box-reflect: below 1px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(50%, transparent), to(rgba(255,255,255,0.2)));
 }
 
 .ShelfTitle {
@@ -231,7 +152,7 @@ img.ShelfImages {
     font-family:"Lucida Console";
     font-size:1.3em;
     opacity:0.8;
-    -webkit-box-reflect: below 1px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(50%, transparent), to(rgba(255,255,255,0.7)));
+    -webkit-box-reflect: below 1px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(90%, transparent), to(rgba(255,255,255,0.7)));
 }
 
 .BlurryContent {
@@ -247,18 +168,22 @@ img.ShelfImages {
 
 .PublishContent {
     position:fixed;
-    top:20%;
-    left:25%;
-    height:400px;
-    width:700px;
-    background:#DADADA;
-    border-radius:8px;
-    border-right:3px solid #FFFFFF;
-    border-left:1px solid #FFFFFF;
-    border-bottom:3px solid #FFFFFF;
-    border-top:1px solid #FFFFFF;
-    box-shadow:5px 5px 10px;
+    top:2%;
+    left:15%;
+    max-height:100%;
+    width:70%;
+    background:#8F7F7B;
+    border-radius:12px;
+    border-right:4px solid #857571;
+    border-left:2px solid #857571;
+    border-bottom:4px solid #857571;
+    border-top:2px solid #857571;
+    box-shadow:4px 5px 10px;
     z-index:9999;
+    opacity:0.9;
+    font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+    font-weight:bolder;
+    min-width:480px;
 }
 
 .TextBoxTextfield {
@@ -297,4 +222,128 @@ img.ShelfImages {
     background: linear-gradient(to bottom,  rgba(147,116,91,1) 0%,rgba(10,9,9,1) 450px,rgba(10,9,9,1) 463px,rgba(12,12,11,1) 467px,rgba(12,12,11,1) 480px,rgba(20,19,18,1) 500px,rgba( 43, 27, 23,1) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93745b', endColorstr='#876a59',GradientType=0 ); /* IE6-9 */
 
+}
+
+.infolabel {
+    font-size:0.8em;
+}
+
+.uploadfile {
+    margin-bottom:10px;
+    margin-left:10px;
+}
+
+.textbox {
+    float:left;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size:18px;
+    padding-left:5px;
+    padding-right:5px;
+    height:30px;
+    width:400px;
+    color:black;
+    margin:20px;
+}
+
+.textarea {
+    float:left;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size:18px;
+    padding-left:5px;
+    padding-right:5px;
+    height:100px;
+    width:400px;
+    color:black;
+    margin:20px;
+    resize:none;
+}
+
+.ErrorMessages {
+    color:#F70D1A;
+    opacity:0.8;
+    font-size:0.8em;
+}
+
+
+h1 {
+    margin-top:10px;
+    margin-bottom:10px;
+    color: black;
+    opacity: 0.7;
+    text-align:center;
+    font-size:2em;
+    text-shadow:1px 1px 1px black;
+}
+
+.Edit_Creator_Field {
+    opacity:1.0;
+}
+
+.wrapuploads {
+float:left;   
+ /*float:right;*/
+margin:20px;
+}
+
+fieldset {
+    float:left;
+    border: ridge #7B6B67 2px;
+    border-radius:10px;
+    width:350px;
+    margin:10px;
+}
+
+legend {
+    margin-left:20px;
+    padding-left:3px;
+    padding-right:3px;
+}
+
+
+.ErrorMessage_Creator {
+    position:relative;
+    left:-430px;
+    color:#A70000;
+    opacity:0.8;
+    font-size:0.8em;
+}
+
+.ErrorMessage_Title {
+    position:relative;
+    left:-430px;
+    color:#A70000;
+    opacity:0.8;
+    font-size:0.8em;
+}
+
+.ErrorMessage_Email {
+    position:relative;
+    left:-430px;
+    top:60px;
+    color:#A70000;
+    opacity:0.8;
+    font-size:0.8em;
+}
+
+.ErrorMessage_Textfield {
+    position:relative;
+    left:-425px;
+    color:#A70000;
+    opacity:0.8;
+    font-size:0.8em;
+}
+
+.ErrorMessage_Upload {
+    position:relative;
+    top:-22px;
+    left:-250px;
+    color:#A70000;
+    opacity:0.8;
+    font-size:0.8em;
 }

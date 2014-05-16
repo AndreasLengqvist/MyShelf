@@ -117,6 +117,11 @@ namespace MyShelf.Pages
             }
         }
 
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/");
+        }
+
         //protected void showButton_Click(object sender, EventArgs e)
         //{
         //    PubListView.InsertItemPosition = InsertItemPosition.LastItem;

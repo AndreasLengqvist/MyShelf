@@ -43,109 +43,102 @@
                     <InsertItemTemplate>
                         <div class="hideBlur" id="publishPopUp">
                             <div class="BlurryContent"></div>
-                        
                             <section class="PublishContent">
+                                <h1>Publish</h1>
 
-                                <asp:ValidationSummary Cssclass="ErrorMessages" ID="ValidationSummary1" runat="server" HeaderText="Fel inträffade. Korrigera det som är fel och försök igen."/>
+<%--                                <asp:ValidationSummary Cssclass="ErrorMessages" ID="ValidationSummary1" runat="server" HeaderText="Fel inträffade. Korrigera det som är fel och försök igen."/>--%>
 
-                                    <div class="Edit_Title_Field">
-                                        <label class="edit_label" for="Title">Title</label>
-                                        </div>
-                                        <div class="Edit_Title_Field">
-                                                <asp:TextBox Cssclass="TextBox" ID="Title" runat="server" Text='<%# BindItem.Title %>' MaxLength="40" />                        
+                                        <div class="Title_Field">
+                                                <asp:TextBox placeholder="Enter a title" Cssclass="textbox" ID="Title"  runat="server" Text='<%# BindItem.Title %>' MaxLength="40" />                        
                                                 <asp:RequiredFieldValidator
-                                                    Cssclass="ErrorMessages"
+                                                    Cssclass="ErrorMessage_Title"
                                                     ID="RequiredFieldValidatorTitle" 
                                                     runat="server" 
-                                                    ErrorMessage="En titel måste anges."
-                                                    Text="*"
+                                                    Text="You need to enter a title"
                                                     ControlToValidate="Title">
                                                 </asp:RequiredFieldValidator>
                                         </div>
+
                                         <div class="Edit_Textfield_Field">
-                                            <label class="edit_label" for="Textfield">Textfield</label>
-                                                <asp:TextBox Cssclass="TextBoxTextfield" ID="Textfield" runat="server" Text='<%# BindItem.Textfield %>' MaxLength="2000" Rows="10"  TextMode="MultiLine" Columns="30" />
-                                                <asp:RequiredFieldValidator 
-                                                    Cssclass="ErrorMessages"
+                                            <asp:TextBox placeholder="Enter a story" Cssclass="textarea" ID="Textfield"  runat="server" Text='<%# BindItem.Textfield %>' MaxLength="2000" TextMode="MultiLine" />
+                                            <asp:RequiredFieldValidator 
+                                                    Cssclass="ErrorMessage_Textfield"
                                                     ID="RequiredFieldValidatorTextfield" 
                                                     runat="server" 
-                                                    ErrorMessage="En text måste anges."
-                                                    Text="*"
+                                                    Text="Please, write something about your publication"
                                                     ControlToValidate="Textfield">
                                                 </asp:RequiredFieldValidator>
                                         </div>
 
+                                <div class="wrapuploads"><legend>Upload</legend>
+
                                  <%-- Uploadfält med valideringskontrollrar. --%>
                                 <div>
-                                    <asp:FileUpload ID="FileUploadPic" runat="server"/>
+                                    <label class="infolabel">Choose file to upload:</label>
+                                    <asp:FileUpload CssClass="uploadfile" ID="FileUploadPic" runat="server"/>
                                     <asp:RequiredFieldValidator 
-                                        Cssclass="ErrorMessages"
+                                        Cssclass="ErrorMessage_Upload"
                                         ID="RequiredFieldValidator" 
                                         runat="server" 
-                                        ErrorMessage="En bild måste väljas"
-                                        Text="*"
+                                        Text="You must choose a file to upload!"
                                         ControlToValidate="FileUploadPic"></asp:RequiredFieldValidator>
                                     <asp:RegularExpressionValidator 
                                         Cssclass="ErrorMessages"
                                         ID="RegularExpressionValidator" 
                                         runat="server" 
-                                        ErrorMessage="Endast bilder av typerna gif, jpg eller png är tillåtna."
                                         ValidationExpression="^.*\.(gif|GIF|jpg|JPG|png|PNG)$" 
                                         ControlToValidate="FileUploadPic" 
-                                        Text="*">
+                                        Text="This filetype cannot be uploaded">
                                     </asp:RegularExpressionValidator>
                                 </div>
 
+                                <div class="Edit_Dropdowns_Field">
+                                    <label class="infolabel">Choose type of upload:</label>
+                                    <asp:DropDownList 
+                                        ID="DropDownListType" 
+                                        runat="server" 
+                                        ItemType="MyShelf.Model.Types"
+                                        DataTextField="Type"
+                                        DataValueField="TypeID"
+                                        SelectMethod="DropDownListType_GetData" 
+                                        SelectedValue='<%# BindItem.TypeID %>'>
+                                    </asp:DropDownList>
+                                </div>
 
-                                        <div class="Edit_Dropdowns_Field">
-                                            <label class="edit_label">Type:</label>
-                                            <asp:DropDownList 
-                                                ID="DropDownListType" 
-                                                runat="server" 
-                                                ItemType="MyShelf.Model.Types"
-                                                DataTextField="Type"
-                                                DataValueField="TypeID"
-                                                SelectMethod="DropDownListType_GetData" 
-                                                SelectedValue='<%# BindItem.TypeID %>'>
-                                            </asp:DropDownList>
+                            </div>
+                                    
 
+
+                                    <fieldset><legend>Creator</legend>
 
                                         <div class="Edit_Creator_Field">
-                                            <label class="edit_label" for="Creator">Creator</label>
-                                        </div>
-                                        <div class="Edit_Creator_Field">
-                                                <asp:TextBox Cssclass="TextBox_Creator" ID="Creator" runat="server" Text='<%# BindItem.Creator %>' MaxLength="25" />
+                                                <asp:TextBox placeholder="Who is the creator?" Cssclass="textbox" ID="Creator"  runat="server" Text='<%# BindItem.Creator %>' MaxLength="25" />
                                                 <asp:RequiredFieldValidator 
-                                                    Cssclass="ErrorMessages"
+                                                    Cssclass="ErrorMessage_Creator"
                                                     ID="RequiredFieldValidatorCreator" 
                                                     runat="server" 
-                                                    ErrorMessage="En skapare av verket måste anges."
-                                                    Text="*"
+                                                    Text="You must enter a creator"
                                                     ControlToValidate="Creator">
                                                 </asp:RequiredFieldValidator>
                                         </div>
 
-                                        </div>
+                                       
 
                                         <div class="Edit_Email_Field">
-                                            <label class="edit_label" for="Email">Email</label>
-                                        </div>
-                                        <div class="Edit_Email_Field">
-                                                <asp:TextBox Cssclass="TextBox_Email" ID="Email" runat="server" Text='<%# BindItem.Email %>' MaxLength="30"/>
+                                                <asp:TextBox placeholder="What is your email?" Cssclass="textbox" ID="Email" runat="server" Text='<%# BindItem.Email %>' MaxLength="30"/>
                                                 <asp:RequiredFieldValidator 
-                                                    Cssclass="ErrorMessages"
+                                                    Cssclass="ErrorMessage_Email"
                                                     ID="RequiredFieldValidatorEmail" 
                                                     runat="server" 
-                                                    ErrorMessage="En email måste anges."
-                                                    Text="*"
+                                                    Text="You must enter a email"
                                                     ControlToValidate="Email">
                                                 </asp:RequiredFieldValidator>
                                         </div>
-
+                                    </fieldset>
                                         <nav id="headmenu">
                                             <ul>
-                                                <li><a id="hideButton" class="back_Button"></a></li>
-                                                <asp:LinkButton CssClass="links" ID="LinkButton1" runat="server" Text="Spara" CommandName="Insert" />
+                                                <li><asp:LinkButton CssClass="back_Button" ID="LinkButton2" runat="server" OnClick="LinkButton2_Click" CausesValidation="false" /></li>
+                                                <li><asp:LinkButton CssClass="realpublish_Button" ID="LinkButton1" runat="server" CommandName="Insert" /></li>
                                             </ul>
                                         </nav>
 

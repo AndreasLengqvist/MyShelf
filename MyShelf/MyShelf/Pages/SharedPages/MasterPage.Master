@@ -13,11 +13,6 @@
 
     <script>
 
-        //window.onresize = function(event) {
-        //    var bWidth = $(".floor").width();
-        //    $(".wall").width(bWidth);
-        //    console.log(bWidth.width);
-        //}
 
         $(function () {
             $("body").mousewheel(function (event, delta) {
