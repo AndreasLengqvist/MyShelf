@@ -79,6 +79,68 @@ namespace MyShelf.Model.DAL
             }
         }
 
+
+        // Hämtar en specifik film.
+        public Publication Get_Spec_Pub(int pubID)
+        {
+            // Skapar och initierar ett anslutningsobjekt.
+            using (SqlConnection conn = CreateConnection())
+            {
+                try
+                {
+                    // Skapar ett SqlCommand-Objekt kontaktar vald lagrad procedur.
+                    SqlCommand cmd = new SqlCommand("appSchema.usp_Get_Spec_Pub", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Lägger till IN-parametrarna till den lagrade proceduren. (Den slöa metoden)
+                    cmd.Parameters.AddWithValue("@PubID", pubID);
+
+                    // Öppnar anslutningen till databasen.
+                    conn.Open();
+
+                    // Eftersom den lagrade proceduren innehåller en SELECT-sats som retunerar flera poster så tas det om hand av
+                    // ett SqlDataReader-Objekt. ExecuteReader-metoden skapar ett SqlDataReaderobjekt och retunerar en referens till objektet.
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Om det finns poster att läsa, börja läsa.
+                        if (reader.Read())
+                        {
+                            // Tar ut index för varje fält. GetOrdinal gör så att det inte spelar någon roll vilken ordning de ligger i.
+                            var pubIdIndex = reader.GetOrdinal("PubID");
+                            var typeIdIndex = reader.GetOrdinal("TypeID");
+                            var creatorIndex = reader.GetOrdinal("Creator");
+                            var emailIndex = reader.GetOrdinal("Email");
+                            var titleIndex = reader.GetOrdinal("Title");
+                            var textfieldIndex = reader.GetOrdinal("Textfield");
+                            var filenameIndex = reader.GetOrdinal("Filename");
+                            var pubdateeIndex = reader.GetOrdinal("PubDate");
+
+                            // Returnerar referensen till de skapade Movie-objektet.
+                            return new Publication
+                            {
+                                PubID = reader.GetInt32(pubIdIndex),
+                                TypeID = reader.GetInt32(typeIdIndex),
+                                Creator = reader.GetString(creatorIndex),
+                                Email = reader.GetString(emailIndex),
+                                Title = reader.GetString(titleIndex),
+                                Textfield = reader.GetString(textfieldIndex),
+                                Filename = reader.GetString(filenameIndex),
+                                PubDate = reader.GetDateTime(pubdateeIndex),
+
+                            };
+                        }
+                    }
+
+                    return null;
+                }
+                catch
+                {
+                    throw;
+                    //throw new ApplicationException("An error occured in the data access layer.");
+                }
+            }
+        }
+
         // Publicerar och sparar ner ett nytt verk till databasen.
         public void Publish(Publication publication)
         {

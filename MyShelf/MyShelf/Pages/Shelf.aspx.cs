@@ -113,7 +113,8 @@ namespace MyShelf.Pages
             }
             catch (Exception)
             {
-                ModelState.AddModelError(String.Empty, "Ett oväntat fel inträffade då verket skulle läggas till.");
+                throw;
+                //ModelState.AddModelError(String.Empty, "Ett oväntat fel inträffade då verket skulle läggas till.");
             }
         }
 

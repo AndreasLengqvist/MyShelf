@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/MyShelf.dll">
+      <publishTime>05/23/2014 00:38:48</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>05/06/2014 01:47:11</publishTime>
+    </File>
+    <File Include="Pages/ImageHandling.aspx">
+      <publishTime>05/21/2014 23:58:42</publishTime>
+    </File>
+    <File Include="Pages/SharedPages/backbutton.png">
+      <publishTime>05/15/2014 01:37:48</publishTime>
+    </File>
+    <File Include="Pages/SharedPages/background.png">
+      <publishTime>05/12/2014 21:33:59</publishTime>
+    </File>
+    <File Include="Pages/SharedPages/MasterPage.Master">
+      <publishTime>05/22/2014 20:18:24</publishTime>
+    </File>
+    <File Include="Pages/SharedPages/mousewheel.min.js">
+      <publishTime>05/08/2014 00:50:23</publishTime>
+    </File>
+    <File Include="Pages/SharedPages/publish.js">
+      <publishTime>05/17/2014 03:08:10</publishTime>
+    </File>
+    <File Include="Pages/SharedPages/publishbutton.png">
+      <publishTime>05/12/2014 19:29:31</publishTime>
+    </File>
+    <File Include="Pages/SharedPages/publish_button.png">
+      <publishTime>05/12/2014 23:02:53</publishTime>
+    </File>
+    <File Include="Pages/SharedPages/Reset.css">
+      <publishTime>05/07/2014 23:48:12</publishTime>
+    </File>
+    <File Include="Pages/SharedPages/StyleSheet.css">
+      <publishTime>05/22/2014 20:03:53</publishTime>
+    </File>
+    <File Include="Pages/Shelf.aspx">
+      <publishTime>05/23/2014 00:39:56</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/23/2014 00:42:51</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

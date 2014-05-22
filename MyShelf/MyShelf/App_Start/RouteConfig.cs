@@ -15,10 +15,13 @@ namespace MyShelf
             "",
             "~/Pages/Shelf.aspx");
 
+            routes.MapPageRoute("ImageHandling",
+            "Image/{id}",
+            "~/Pages/ImageHandling.aspx");
 
-            routes.MapPageRoute("Publish",
-                "Shelf/Publish",
-                "~/Pages/Publish.aspx");
+            //routes.MapPageRoute("Image",
+            //    "Shelf/Image",
+            //    "~/Pages/Image.aspx");
 
 
 
@@ -30,16 +33,6 @@ namespace MyShelf
             //routes.MapPageRoute("GenreCreator",
             //    "Genre/Hantering/Ny",
             //    "~/Pages/MoviePages/GenreCreator.aspx");
-
-
-            //routes.MapPageRoute("MovieHandling",
-            //"Film/{id}",
-            //"~/Pages/MoviePages/MovieHandling.aspx");
-
-
-
-
-
 
         }
     }

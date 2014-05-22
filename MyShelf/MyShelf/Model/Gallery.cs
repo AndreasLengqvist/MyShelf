@@ -110,8 +110,11 @@ namespace MyShelf.Model
         static Gallery()
         {
             ApprovedExenstions = new Regex(@"^.*\.(gif|jpg|png)$");
-            PhysicalUploadedImagesPath = Path.Combine(AppDomain.CurrentDomain.GetData("APPBASE").ToString(), @"C:\Users\Irene Lenqvist\Documents\GitHub\MyShelf\MyShelf\MyShelf\content\pictures\");
-            PhysicalUploadedThumbnailsPath = Path.Combine(AppDomain.CurrentDomain.GetData("APPBASE").ToString(), @"C:\Users\Irene Lenqvist\Documents\GitHub\MyShelf\MyShelf\MyShelf\content\thumbnails\");
+            PhysicalUploadedImagesPath = Path.Combine(AppDomain.CurrentDomain.GetData("APPBASE").ToString(), @"content\pictures\");
+            PhysicalUploadedThumbnailsPath = Path.Combine(AppDomain.CurrentDomain.GetData("APPBASE").ToString(), @"content\thumbnails\");
+
+            //PhysicalUploadedImagesPath = Path.Combine(AppDomain.CurrentDomain.GetData("APPBASE").ToString(), @"C:\Users\Irene Lenqvist\Documents\GitHub\MyShelf\MyShelf\MyShelf\content\pictures\");
+            //PhysicalUploadedThumbnailsPath = Path.Combine(AppDomain.CurrentDomain.GetData("APPBASE").ToString(), @"C:\Users\Irene Lenqvist\Documents\GitHub\MyShelf\MyShelf\MyShelf\content\thumbnails\");
 
             var invalidChars = new string(Path.GetInvalidFileNameChars());
             SantizePath = new Regex(string.Format("[{0}]", Regex.Escape(invalidChars)));

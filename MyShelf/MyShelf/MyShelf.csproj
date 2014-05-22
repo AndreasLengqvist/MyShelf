@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Pages\ImageHandling.aspx" />
     <Content Include="Pages\SharedPages\background.png" />
     <Content Include="Pages\SharedPages\backbutton.png" />
     <Content Include="Pages\SharedPages\publish.js" />
@@ -84,6 +85,13 @@
     <Compile Include="Model\Publication.cs" />
     <Compile Include="Model\Service.cs" />
     <Compile Include="Model\Type.cs" />
+    <Compile Include="Pages\ImageHandling.aspx.cs">
+      <DependentUpon>ImageHandling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ImageHandling.aspx.designer.cs">
+      <DependentUpon>ImageHandling.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SharedPages\MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -102,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\SharedPages\MasterPage.Master" />
+    <None Include="Properties\PublishProfiles\MyShelf.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

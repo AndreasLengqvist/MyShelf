@@ -28,13 +28,17 @@ namespace MyShelf.Model
         }
 
 
-        // Hämtar alla filmer som finns lagrade i databasen.
+        // Hämtar alla publikationer som finns lagrade i databasen.
         public IEnumerable<Publication> Get_All_Pub()
         {
             return PubDAL.Get_All_Pub();
         }
 
-
+        // Hämtar en specifik publikation.
+        public Publication Get_Spec_Pub(int pubID)
+        {
+            return PubDAL.Get_Spec_Pub(pubID);
+        }
 
         // Kombinerad uppdaterings och lägga till-metod för filmer med validering.
         public void Publish(Publication publication)
@@ -60,5 +64,9 @@ namespace MyShelf.Model
         {
             return TypeDAL.Get_All_Types();
         }
+
+
+
     }
 }
+
