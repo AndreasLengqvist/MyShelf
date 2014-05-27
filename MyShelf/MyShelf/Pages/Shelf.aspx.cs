@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -48,7 +49,7 @@ namespace MyShelf.Pages
 
 
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {            
             if (HasMessage)
             {
                 SuccessLabel.Text = Message;
@@ -123,15 +124,52 @@ namespace MyShelf.Pages
             Response.Redirect("~/");
         }
 
-        //protected void showButton_Click(object sender, EventArgs e)
-        //{
-        //    PubListView.InsertItemPosition = InsertItemPosition.LastItem;
+        
+        protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
+        {
+            
+            string username = Login1.UserName;
+            string password = Login1.Password;
 
-        //}
+            var salt = Service.GetSalt(username);
 
-        //protected void hideButton_Click(object sender, EventArgs e)
-        //{
-        //    PubListView.InsertItem.FindControl("showInsert").Visible = false;
-        //}
+            var stringDataToHash = String.Format(password + salt);
+
+            HashAlgorithm hashAlg = new SHA256CryptoServiceProvider();
+
+            byte[] byteValue = System.Text.Encoding.UTF8.GetBytes(stringDataToHash);
+
+            byte[] byteHash = hashAlg.ComputeHash(byteValue);
+
+            string base64 = Convert.ToBase64String(byteHash);
+
+            //Kolla länken sedan
+            //http://stackoverflow.com/questions/4329909/hashing-passwords-with-md5-or-sha-256-c-sharp
+
+
+            bool result = Service.UserLogin(username, base64);
+            if ((result))
+            {
+                e.Authenticated = true;
+                Session["IsAdmin"] = true;
+                Response.Redirect("~/");            
+            }
+            else
+            {
+                e.Authenticated = false;
+            }
+        }
+
+        protected void LinkButton3_Click(object sender, EventArgs e)
+        {
+            PlaceHolder1.Visible = true;
+            PubListView.FindControl("LinkButton2").Visible = false;
+        }
+
+        protected void LinkButton2_Click1(object sender, EventArgs e)
+        {
+            PubListView.InsertItem.FindControl("PlaceHolder2").Visible = true;
+            PubListView.FindControl("LinkButton2").Visible = false;
         }
     }
+}

@@ -4,29 +4,25 @@ var Namespace ={
     init: function () {
 
 
-        var showbutton = document.getElementById("showButton");
+        var showbutton = document.querySelector(".publish_Button");
         var hidebutton = document.getElementById("hideButton");
 
+        // Om Publiceringsknappen inte finns så blurra allt.
+        if (showbutton == null) {
+            var images = document.querySelectorAll(".ShelfImageWrapper");
+            for (var i = 0; i < images.length; i++) {
+                images[i].className = 'blur';
+            }
+
+        }
+
         showbutton.onclick = function () {
-            var diven = document.getElementById("publishPopUp");
-            diven.className = "showBlur";
+
             showbutton.style.display = "none";
 
             var images = document.querySelectorAll(".ShelfImageWrapper");
             for (var i = 0; i < images.length; i++) {
-                    images[i].className = 'blur';
-            }
-        }
-
-        hidebutton.onclick = function () {
-            var diven = document.getElementById("publishPopUp");
-            diven.className = "hideBlur";
-            showbutton.style.display = "block";
-
-
-            var images = document.querySelectorAll(".blur");
-            for (var i = 0; i < images.length; i++) {
-                images[i].className = 'ShelfImageWrapper';
+                images[i].className = 'blur';
             }
         }
     }

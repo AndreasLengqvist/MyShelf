@@ -9,6 +9,35 @@
         <asp:Label CssClass="SuccessLabel" ID="SuccessLabel" runat="server" Text="Label" Visible="false"></asp:Label><br />
     </div>
 
+            <asp:PlaceHolder ID="PlaceHolder1" runat="server" Visible="false">
+                <div class="BlurryContent"></div>
+                    <section class="LoginContent">
+                        <h3>Administration Login</h3>
+                        <asp:Login ID="Login1" runat="server" OnAuthenticate="Login1_Authenticate">
+                            <LayoutTemplate>
+                                <asp:TextBox Placeholder="Username" ID="UserName" runat="server" CssClass="username" />
+                                <asp:TextBox Placeholder="Password" ID="Password" runat="server" CssClass="password" TextMode="Password" />
+                                
+                                <nav>
+                                    <ul>
+                                        <li><asp:LinkButton CssClass="realpublish_Button" ID="LinkButton4" runat="server" CommandName="Login" Text="Log In" ValidationGroup="LoginUserValidationGroup"/></li>
+                                    </ul>
+                                </nav>
+                            </LayoutTemplate>
+                        </asp:Login>
+                    </section>
+            <nav>
+                <ul>
+                    <li><asp:LinkButton CssClass="back_Button" ID="LinkButton2" runat="server" OnClick="LinkButton2_Click" CausesValidation="false" /></li>
+                </ul>
+            </nav>
+            </asp:PlaceHolder>
+
+            <nav>
+                <ul>
+                    <li><asp:LinkButton CssClass="headmenubuttons" ID="LinkButton3" runat="server" OnClick="LinkButton3_Click" CausesValidation="false">Admin</asp:LinkButton></li>
+                </ul>
+            </nav>
 
         <asp:ListView ID="PubListView" runat="server"
                     ItemType="MyShelf.Model.Publication"
@@ -23,27 +52,27 @@
 
                     <nav id="headmenu">
                         <ul>
-                            <li><a id="showButton" class="publish_Button"></a></li>
+<%--                            <li><a id="showButton" class="publish_Button"></a></li>--%>
+                            <li><asp:LinkButton CssClass="publish_Button" ID="LinkButton2" runat="server" CausesValidation="false" OnClick="LinkButton2_Click1"/></li>
                         </ul>
                     </nav>
 
                 </LayoutTemplate>
                 <ItemTemplate>
-                <%-- Mall för nya rader. --%>
                         <div class="ShelfImageWrapper">
                             <asp:HyperLink CssClass="ShelfLinks" ID="HyperLink1" runat="server" NavigateUrl='<%# GetRouteUrl("ImageHandling", new {id = Item.PubID}) %>' >
                                 <span class="text-content"><asp:Label CssClass="ShelfTitle" ID="Label2" runat="server" Text='<%#  Item.Title %>'></asp:Label></span>
                                 <asp:Image CssClass="ShelfImages" ID="ShelfImages" runat="server" ImageUrl='<%#  "~/content/thumbnails/" + Item.Filename %>' />
                             </asp:HyperLink>
                         </div>
-                    </ItemTemplate>
+                </ItemTemplate>
 
                     <EmptyDataTemplate>
 
                     </EmptyDataTemplate>
 
                     <InsertItemTemplate>
-                        <div class="hideBlur" id="publishPopUp">
+                        <asp:PlaceHolder ID="PlaceHolder2" runat="server" Visible="false">
                             <div class="BlurryContent"></div>
                             <section class="PublishContent">
                                 <h1>Publish</h1>
@@ -145,7 +174,7 @@
                                         </nav>
 
                             </section>
-                        </div>
+                    </asp:PlaceHolder>
                     </InsertItemTemplate>
 
                     <EditItemTemplate>

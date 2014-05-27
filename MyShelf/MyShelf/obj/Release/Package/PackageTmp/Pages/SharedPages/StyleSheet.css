@@ -1,10 +1,18 @@
 ﻿body {
     font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
     margin:0 auto;
-    background:#2B1B17;
+    background: rgb(147,116,91);
+    background: -moz-linear-gradient(top,  rgba(255, 255, 255,1) 0%, rgba(56,50,50,1) 450px, rgba(10,9,9,1) 463px, rgba(0,0,0,1) 467px, rgba(0,0,0,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255, 255, 255,1)), color-stop(450px,rgba(56,50,50,1)), color-stop(463px,rgba(0,0,0,1)), color-stop(467px,rgba(0,0,0,1)) color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(255, 255, 255,1) 0%,rgba(56,50,50,1) 450px,rgba(10,9,9,1) 463px,rgba(0,0,0,1) 467px,rgba(20,19,18,1) 500px,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(255, 255, 255,1) 0%,rgba(56,50,50,1) 450px,rgba(10,9,9,1) 463px,rgba(0,0,0,1) 467px,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(255, 255, 255,1) 0%,rgba(56,50,50,1) 450px,rgba(10,9,9,1) 463px,rgba(0,0,0,1) 467px,rgba(0,0,0,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(255, 255, 255,1) 0%,rgba(56,50,50,1) 450px,rgba(10,9,9,1) 463px,rgba(0,0,0,1) 467px,rgba(0,0,0,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93745b', endColorstr='#876a59',GradientType=0 ); /* IE6-9 */
+
 }
 
-nav#headmenu li a.publish_Button
+nav li a.publish_Button
 {
     position:fixed;
     bottom:-28px;
@@ -23,7 +31,7 @@ nav#headmenu li a.publish_Button
     opacity:0.6;
 }
 
-nav#headmenu li a.back_Button
+nav li a.back_Button
 {
     position:fixed;
     bottom:-28px;
@@ -40,9 +48,10 @@ nav#headmenu li a.back_Button
     width: 650px;
     height: 76px;
     opacity:1;
+    z-index:99999;
 }
 
-nav#headmenu li a.back_Button2
+nav li a.back_Button2
 {
     position:fixed;
     bottom:-90px;
@@ -61,7 +70,26 @@ nav#headmenu li a.back_Button2
     opacity:0.6;
 }
 
-nav#headmenu li a.publish_Button:hover
+nav li a.back_Button2:hover
+{
+    position:fixed;
+    bottom:-90px;
+    left:-155px;
+    list-style:none;
+    -webkit-transform: rotate(40deg);
+    -moz-transform: rotate(40deg);
+    -ms-transform: rotate(40deg);
+    -o-transform: rotate(40deg);
+    transform:rotate(40deg);
+    background-image: url(backbutton.png);
+    background-repeat:no-repeat;
+    background-size:50%;
+    width: 650px;
+    height: 50px;
+    opacity:1;
+}
+
+nav li a.publish_Button:hover
 {
     position:fixed;
     bottom:-28px;
@@ -80,7 +108,7 @@ nav#headmenu li a.publish_Button:hover
     opacity:1;
 }
 
-nav#headmenu li a.back_Button:hover
+nav li a.back_Button:hover
 {
     position:fixed;
     bottom:-28px;
@@ -97,29 +125,10 @@ nav#headmenu li a.back_Button:hover
     width: 650px;
     height: 76px;
     opacity:0.6;
+    z-index:99999;
 }
 
-nav#headmenu li a.back_Button2:hover
-{
-    position:fixed;
-    bottom:-90px;
-    left:-155px;
-    list-style:none;
-    -webkit-transform: rotate(40deg);
-    -moz-transform: rotate(40deg);
-    -ms-transform: rotate(40deg);
-    -o-transform: rotate(40deg);
-    transform:rotate(40deg);
-    background-image: url(backbutton.png);
-    background-repeat:no-repeat;
-    background-size:50%;
-    width: 650px;
-    height: 50px;
-    opacity:1;
-}
-
-
-nav#headmenu li a.realpublish_Button
+nav li a.realpublish_Button
 {
     position:fixed;
     bottom:90px;
@@ -138,7 +147,7 @@ nav#headmenu li a.realpublish_Button
     opacity:1;
 }
 
-nav#headmenu li a.realpublish_Button:hover
+nav li a.realpublish_Button:hover
 {
     position:fixed;
     bottom:90px;
@@ -180,13 +189,14 @@ nav#headmenu li a.realpublish_Button:hover
 }
 
 .BlurryContent {
+    z-index:999;
     position:fixed;
     top:0;
     bottom:0;
     left:0;
     right:0;
     background:#1e1e1e;
-    opacity:0.5;
+    opacity:0.6;
     text-align:center;
 }
 
@@ -203,34 +213,37 @@ nav#headmenu li a.realpublish_Button:hover
     border-bottom:4px solid #857571;
     border-top:2px solid #857571;
     box-shadow:4px 5px 10px;
-    z-index:9999;
     opacity:0.9;
     font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
     font-weight:bolder;
     min-width:480px;
+    z-index:9999;
+}
+
+.LoginContent {
+    position:fixed;
+    top:35%;
+    left:35%;
+    width:300px;
+    background:#9B9B9B;
+    border-radius:12px;
+    border-right:4px solid #857571;
+    border-left:2px solid #857571;
+    border-bottom:4px solid #857571;
+    border-top:2px solid #857571;
+    box-shadow:4px 5px 10px;
+    z-index:9999;
+    opacity:0.9;
+    font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+    font-weight:bolder;
+    min-width:250px;
+    padding:10px;
+    text-align:center;
 }
 
 .TextBoxTextfield {
     resize:none;
 }
-
-
-.hideBlur {
-    visibility:hidden;
-    opacity:0;
-}
-
-.showBlur {
-    visibility:visible;
-    opacity:1;
-    z-index:99999;
-    position:fixed;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
-}
-
 
 .floor {
     position:absolute;
@@ -305,13 +318,22 @@ h1 {
     text-shadow:1px 1px 1px black;
 }
 
+h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: black;
+    opacity: 0.7;
+    text-align: center;
+    font-size: 1em;
+    text-shadow: 1px 1px 1px black;
+}
+
 .Edit_Creator_Field {
     opacity:1.0;
 }
 
 .wrapuploads {
 float:left;   
- /*float:right;*/
 margin:20px;
 }
 
@@ -449,4 +471,24 @@ span.text-content {
 
 .Label2 {
     position:relative;
+}
+
+.username, .password {
+    float:left;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size:18px;
+    padding-left:5px;
+    padding-right:5px;
+    height:30px;
+    width:200px;
+    color:black;
+    margin:10px;
+}
+
+.headmenubuttons {
+    position:fixed;
+    right:5%;
 }

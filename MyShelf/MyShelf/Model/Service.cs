@@ -1,4 +1,5 @@
 ﻿using MyShelf.Model.DAL;
+using MyShelf.Pages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,12 +14,19 @@ namespace MyShelf.Model
     {
 
         private PubDAL _pubDAL;
+        private AdminDAL _adminDAL;
         private TypeDAL _typeDAL;
 
         // Ett PubDAL-objekt skapas med hjälp av Lazy initialization.
         private PubDAL PubDAL
         {
             get { return _pubDAL ?? (_pubDAL = new PubDAL()); }
+        }
+
+        // Ett AdminDAL-objekt skapas med hjälp av Lazy initialization.
+        private AdminDAL AdminDAL
+        {
+            get { return _adminDAL ?? (_adminDAL = new AdminDAL()); }
         }
 
         // Ett TypeDAL-objekt skapas med hjälp av Lazy initialization.
@@ -66,7 +74,18 @@ namespace MyShelf.Model
         }
 
 
+        public bool UserLogin(string username, string password)
+        {
+            return AdminDAL.UserLogin(username, password);
+        }
 
+
+        public string GetSalt(string username)
+        {
+            return AdminDAL.GetSalt(username);
+        }
+
+        
     }
 }
 

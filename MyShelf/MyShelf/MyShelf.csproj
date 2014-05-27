@@ -58,11 +58,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Pages\AdminLogin.aspx" />
     <Content Include="Pages\ImageHandling.aspx" />
     <Content Include="Pages\SharedPages\background.png" />
     <Content Include="Pages\SharedPages\backbutton.png" />
     <Content Include="Pages\SharedPages\publish.js" />
-    <Content Include="Pages\SharedPages\mousewheel.min.js" />
     <Content Include="Pages\SharedPages\publishbutton.png" />
     <Content Include="Pages\SharedPages\publish_button.png" />
     <Content Include="Pages\SharedPages\Reset.css" />
@@ -78,13 +78,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Model\DAL\AdminDAL.cs" />
     <Compile Include="Model\DAL\DALBase.cs" />
     <Compile Include="Model\DAL\PubDAL.cs" />
     <Compile Include="Model\DAL\TypeDAL.cs" />
     <Compile Include="Model\Gallery.cs" />
+    <Compile Include="Model\Login.cs" />
     <Compile Include="Model\Publication.cs" />
     <Compile Include="Model\Service.cs" />
     <Compile Include="Model\Type.cs" />
+    <Compile Include="Pages\AdminLogin.aspx.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminLogin.aspx.designer.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ImageHandling.aspx.cs">
       <DependentUpon>ImageHandling.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
