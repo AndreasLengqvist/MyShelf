@@ -11,9 +11,10 @@
             <ItemTemplate>
                 <div class="ImageSite">
                 <div class="ImageInfo">
-                    <asp:Label ID="Label1" runat="server" Text='<%# Item.Title %>'></asp:Label>
-                    <asp:Label ID="Label2" runat="server" Text='<%# Item.Textfield %>'></asp:Label>
-                    <asp:Label ID="Label3" runat="server" Text='<%# Item.PubDate %>'></asp:Label>
+                    <div><asp:Label ID="Label1" CssClass="title_image" runat="server" Text='<%# Item.Title %>'></asp:Label></div>
+                    <p><asp:Label ID="Label2" CssClass="story_image" runat="server" Text='<%# Item.Textfield %>'></asp:Label></p>
+                    <a title="Mail the creator" href='mailto:<%# Item.Email %>'><asp:Label ID="Label5" CssClass="creator_image" runat="server" Text='<%# Item.Creator %>'></asp:Label></a>
+                    <asp:Label ID="Label3" CssClass="uploaded_image" runat="server" Text='<%# Item.PubDate %>'></asp:Label>
                 </div>
                     <asp:Image CssClass="Image" ID="ShelfImages" runat="server" ImageUrl='<%#  "~/content/pictures/" + Item.Filename %>' />
                 </div>
@@ -24,7 +25,7 @@
 
     <nav id="headmenu">
         <ul>
-            <li><asp:LinkButton CssClass="back_Button2" ID="BackButton2" runat="server" OnClick="BackButton2_Click" CausesValidation="false" /></li>
+            <li><asp:LinkButton ToolTip="Return to the site" CssClass="back_Button" ID="BackButton2" runat="server" OnClick="BackButton2_Click" CausesValidation="false" /></li>
         </ul>
     </nav>
 </asp:Content>

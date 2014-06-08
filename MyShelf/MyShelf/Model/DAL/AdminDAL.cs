@@ -19,16 +19,16 @@ namespace MyShelf.Model.DAL
         }
 
 
-
+        // Kontaktas när en admin vill logga in.
         public bool UserLogin(string username, string password)
         {
 
             using (SqlConnection connection = CreateConnection())
             {
-                SqlCommand cmd = new SqlCommand("appSchema.AdminLogin", connection);
+                SqlCommand cmd = new SqlCommand("appSchema.usp_AdminLogin", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                // Skickar in lösenord och anvnamn i den lagrade proceduren.
+                // Skickar in lösenord och användarnamn i den lagrade proceduren.
                 cmd.Parameters.Add("@Username", SqlDbType.VarChar).Value = username;
                 cmd.Parameters.Add("@Hash", SqlDbType.VarChar).Value = password;
 
@@ -38,24 +38,23 @@ namespace MyShelf.Model.DAL
 
                 if (string.IsNullOrEmpty(result))
                 {
-                    //Om lösenordet är fel returnera falskt
                     return false;
                 }
                 else
                 {
-                    // annars true
                     return true;
                 }
             }
         }
 
+        // Hämtar salt för att kunna göra en kryptering av lösenordet.
         public string GetSalt(string username)
         {
             using (SqlConnection conn = CreateConnection())
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("appSchema.GetSalt", conn);
+                    SqlCommand cmd = new SqlCommand("appSchema.usp_GetSalt", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@UserName", username);
@@ -68,10 +67,10 @@ namespace MyShelf.Model.DAL
                         {
                             var salt = reader.GetOrdinal("Salt");
 
-                            string hej = reader.GetString(salt);
-                            Login.Salt = hej;
+                            string SaltasString = reader.GetString(salt);
+                            Login.Salt = SaltasString;
 
-                            return hej;
+                            return SaltasString;
 
                         }
                         return null;

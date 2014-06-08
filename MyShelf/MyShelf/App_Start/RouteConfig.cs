@@ -10,29 +10,15 @@ namespace MyShelf
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-
+            // Rot till startsidan.
             routes.MapPageRoute("Shelf",
             "",
             "~/Pages/Shelf.aspx");
 
+            // Rot till bildsidan med unikt id.
             routes.MapPageRoute("ImageHandling",
             "Image/{id}",
             "~/Pages/ImageHandling.aspx");
-
-            //routes.MapPageRoute("Image",
-            //    "Shelf/Image",
-            //    "~/Pages/Image.aspx");
-
-
-
-            //routes.MapPageRoute("GenreHandling",
-            //    "Genre/Hantering",
-            //    "~/Pages/MoviePages/GenreHandling.aspx");
-
-
-            //routes.MapPageRoute("GenreCreator",
-            //    "Genre/Hantering/Ny",
-            //    "~/Pages/MoviePages/GenreCreator.aspx");
 
         }
     }

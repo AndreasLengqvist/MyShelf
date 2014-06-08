@@ -170,7 +170,7 @@ BEGIN
 END
 
 
--- Hämtar alla typer --
+-- Hämtar alla typer.
 CREATE PROCEDURE appSchema.usp_Get_All_Type
 AS
 BEGIN
@@ -188,4 +188,56 @@ BEGIN
 					RAISERROR(@SetMsg, 16, 1)
 				END CATCH
 			END
+END
+
+
+-- Procedur för inloggning av administratör.
+ALTER PROCEDURE appSchema.usp_AdminLogin
+@Username varchar(50),
+@Hash varchar(500)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	DECLARE @Setmsg varchar(40) = ''
+			BEGIN
+				BEGIN TRY
+					
+						SELECT Username
+						FROM Admin
+						WHERE Username = @Username COLLATE SQL_Latin1_General_CP1_CS_AS AND Hash = @Hash COLLATE SQL_Latin1_General_CP1_CS_AS;
+				END TRY
+				BEGIN CATCH
+					SET @SetMsg = 'Fel vid körning av proceduren!'
+					RAISERROR(@SetMsg, 16, 1)
+				END CATCH
+			END
+END
+
+
+-- Hämtar  Salt
+CREATE PROCEDURE appSchema.usp_GetSalt
+@Username varchar(50) = ''
+AS   
+BEGIN
+	SET NOCOUNT ON;
+	DECLARE @Setmsg varchar(40) = ''
+	
+		IF EXISTS(SELECT Username FROM Admin WHERE Username=@Username)
+			BEGIN
+				BEGIN TRY
+					IF EXISTS(SELECT @Username FROM Admin WHERE Username=@Username)
+						SELECT Salt
+						FROM Admin
+						WHERE Username=@Username
+				END TRY
+				BEGIN CATCH
+					SET @SetMsg = 'Fel vid körning av proceduren!'
+					RAISERROR(@SetMsg, 16, 1)
+				END CATCH
+			END
+		ELSE
+		BEGIN
+			SET @SetMsg = 'The Username does not exists!'
+			RAISERROR(@SetMsg, 16, 1)
+		END
 END

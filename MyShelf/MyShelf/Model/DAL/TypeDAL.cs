@@ -56,7 +56,7 @@ namespace MyShelf.Model.DAL
                     // hur många referenser jag vill ha högst upp).
                     types.TrimExcess();
 
-                    // Returnerar genres där alla dess poster ligger.
+                    // Returnerar types där alla dess poster ligger.
                     return types;
                 }
                 catch

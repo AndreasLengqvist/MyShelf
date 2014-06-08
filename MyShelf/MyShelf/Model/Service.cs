@@ -48,7 +48,13 @@ namespace MyShelf.Model
             return PubDAL.Get_Spec_Pub(pubID);
         }
 
-        // Kombinerad uppdaterings och lägga till-metod för filmer med validering.
+        // Hämtar alla publikationer som finns lagrade i databasen.
+        public IEnumerable<Types> Get_All_Types()
+        {
+            return TypeDAL.Get_All_Types();
+        }
+
+        // Kombinerad uppdaterings och lägga till-metod för publikationer med validering.
         public void Publish(Publication publication)
         {
 
@@ -63,23 +69,32 @@ namespace MyShelf.Model
                 ex.Data.Add("ValidationResults", validationResults);
                 throw ex;
             }
-
+                        // Om PubID:t är 0, skapa ny publicering, annars uppdatera.
+            if (publication.PubID == 0)
+            {
             PubDAL.Publish(publication);
+            }
+            else
+            {
+                PubDAL.Edit_Pub(publication);
+            }
         }
 
 
-        public IEnumerable<Types> Get_All_Types()
+        // Tar bort en publicering ur databasen.
+        public void Delete_Pub(int pubID)
         {
-            return TypeDAL.Get_All_Types();
+            PubDAL.Delete_Pub(pubID);
         }
 
-
+        // Loggar in admin.
         public bool UserLogin(string username, string password)
         {
             return AdminDAL.UserLogin(username, password);
         }
 
 
+        // Hämtar salt för att kunna göra en kryptering och tyda lösenordet.
         public string GetSalt(string username)
         {
             return AdminDAL.GetSalt(username);

@@ -68,7 +68,7 @@ namespace MyShelf.Model.DAL
                     // hur många referenser jag vill ha högst upp).
                     publications.TrimExcess();
 
-                    // Returnerar movies där alla dess poster ligger.
+                    // Returnerar publications där alla dess poster ligger.
                     return publications;
                 }
                 catch
@@ -80,7 +80,7 @@ namespace MyShelf.Model.DAL
         }
 
 
-        // Hämtar en specifik film.
+        // Hämtar en specifik pub.
         public Publication Get_Spec_Pub(int pubID)
         {
             // Skapar och initierar ett anslutningsobjekt.
@@ -115,7 +115,7 @@ namespace MyShelf.Model.DAL
                             var filenameIndex = reader.GetOrdinal("Filename");
                             var pubdateeIndex = reader.GetOrdinal("PubDate");
 
-                            // Returnerar referensen till de skapade Movie-objektet.
+                            // Returnerar referensen till de skapade Publication-objektet.
                             return new Publication
                             {
                                 PubID = reader.GetInt32(pubIdIndex),
@@ -141,7 +141,7 @@ namespace MyShelf.Model.DAL
             }
         }
 
-        // Publicerar och sparar ner ett nytt verk till databasen.
+        // Publicerar och sparar ner en ny pub till databasen.
         public void Publish(Publication publication)
         {
             // Skapar och initierar ett anslutningsobjekt.
@@ -160,7 +160,7 @@ namespace MyShelf.Model.DAL
                     cmd.Parameters.Add("@Email", SqlDbType.VarChar, 40).Value = publication.Email;
                     cmd.Parameters.Add("@Title", SqlDbType.VarChar, 40).Value = publication.Title;
                     cmd.Parameters.Add("@Textfield", SqlDbType.VarChar, 2000).Value = publication.Textfield;
-                    cmd.Parameters.Add("@Filename", SqlDbType.VarChar, 40).Value = publication.Filename;
+                    cmd.Parameters.Add("@Filename", SqlDbType.VarChar, 200).Value = publication.Filename;
 
 
                     // Öppnar anslutningen till databasen.
@@ -169,7 +169,7 @@ namespace MyShelf.Model.DAL
                     // Eftersom det är en INSERT-sats så behövs det inte retunera några poster. Därför använder jag ExecuteNonQuery.
                     cmd.ExecuteNonQuery();
 
-                    // Hämtar primärnyckelns värde för den nya posten och tilldelar Movie-objektet värdet.
+                    // Hämtar primärnyckelns värde för den nya posten och tilldelar Publication-objektet värdet.
                     publication.PubID = (int)cmd.Parameters["@PubID"].Value;
                 }
                 catch
@@ -181,6 +181,67 @@ namespace MyShelf.Model.DAL
             }
         }
 
+
+        /// Uppdaterar en publicering.
+        public void Edit_Pub(Publication publication)
+        {
+            // Skapar och initierar ett anslutningsobjekt.
+            using (SqlConnection conn = CreateConnection())
+            {
+                try
+                {
+                    // Skapar ett SqlCommand-Objekt kontaktar vald lagrad procedur.
+                    SqlCommand cmd = new SqlCommand("appSchema.usp_Edit_Pub", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Lägger till IN-parametrarna till den lagrade proceduren. (Den slöa metoden)
+                    cmd.Parameters.Add("@PubID", SqlDbType.Int, 4).Value = publication.PubID;
+                    cmd.Parameters.Add("@TypeID", SqlDbType.Int).Value = publication.TypeID;
+                    cmd.Parameters.Add("@Creator", SqlDbType.VarChar, 40).Value = publication.Creator;
+                    cmd.Parameters.Add("@Email", SqlDbType.VarChar, 40).Value = publication.Email;
+                    cmd.Parameters.Add("@Title", SqlDbType.VarChar, 40).Value = publication.Title;
+                    cmd.Parameters.Add("@Textfield", SqlDbType.VarChar, 2000).Value = publication.Textfield;
+
+                    // Öppnar anslutningen till databasen.
+                    conn.Open();
+
+                    // Eftersom det är en UPDATE-sats så behövs det inte retunera några poster. Därför använder jag ExecuteNonQuery.
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw new ApplicationException("An error occured in the data dataaccesslayer.");
+                }
+            }
+        }
+
+        /// Tar bort en publicering.
+        public void Delete_Pub(int pubID)
+        {
+            // Skapar och initierar ett anslutningsobjekt.
+            using (SqlConnection conn = CreateConnection())
+            {
+                try
+                {
+                    // Skapar ett SqlCommand-Objekt kontaktar vald lagrad procedur.
+                    SqlCommand cmd = new SqlCommand("appSchema.usp_Delete_Pub", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Lägger till IN-parametern till den lagrade proceduren.
+                    cmd.Parameters.Add("@PubID", SqlDbType.Int, 4).Value = pubID;
+
+                    // Öppnar anslutningen till databasen.
+                    conn.Open();
+
+                    // Eftersom det är en DELETE-sats så behövs det inte retunera några poster. Därför använder jag ExecuteNonQuery.
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw new ApplicationException("An error occured in the data access layer.");
+                }
+            }
+        }
     }
 }
     

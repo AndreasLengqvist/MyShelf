@@ -73,8 +73,7 @@ namespace MyShelf.Model
 
                 image.Save(Path.Combine(PhysicalUploadedImagesPath + filename));
 
-                //var imgPhoto = ScaleByPercent(image, 10);
-                var imgPhoto = ScaleImage(image, 350);
+                var imgPhoto = ScaleImage(image, 450);
                 imgPhoto.Save(Path.Combine(PhysicalUploadedThumbnailsPath + filename)); // path -> fullständig fysisk filnamn inklusive sökväg.
                 imgPhoto.Dispose();
                 i = 0;
@@ -88,6 +87,7 @@ namespace MyShelf.Model
 
         }
 
+        // Metod för att skala om bilden till applikationens bestämda storlek.
         public static Image ScaleImage(Image image, int maxHeight)
         {
             var ratio = (double)maxHeight / image.Height;
@@ -101,10 +101,28 @@ namespace MyShelf.Model
                 g.DrawImage(image, 0, 0, newWidth, newHeight);
             }
             return newImage;
-        } 
+        }
 
-
-        // Funktion som anropas för att skala ner en bild, även denna bild som syns i bokhyllan.
+        // Metod för att ta bort bild ur mapparna ifall admin väljer att ta bort publikation.
+        public void DeleteImage(string Filename)
+        {
+            if (ImageExists(Filename))
+            {
+                try
+                {
+                    File.Delete(Path.Combine(PhysicalUploadedImagesPath, Filename));
+                    File.Delete(Path.Combine(PhysicalUploadedThumbnailsPath, Filename));
+                }
+                catch (Exception)
+                {
+                    throw new ArgumentException("Ett oväntat undantag inträffade när bilden skulle tas bort från servern.");
+                }
+            }
+            else
+            {
+                throw new ArgumentException("Ett oväntat undantag inträffade när bilden skulle tas bort från servern.");
+            }
+        }
 
 
         static Gallery()
@@ -113,12 +131,8 @@ namespace MyShelf.Model
             PhysicalUploadedImagesPath = Path.Combine(AppDomain.CurrentDomain.GetData("APPBASE").ToString(), @"content\pictures\");
             PhysicalUploadedThumbnailsPath = Path.Combine(AppDomain.CurrentDomain.GetData("APPBASE").ToString(), @"content\thumbnails\");
 
-            //PhysicalUploadedImagesPath = Path.Combine(AppDomain.CurrentDomain.GetData("APPBASE").ToString(), @"C:\Users\Irene Lenqvist\Documents\GitHub\MyShelf\MyShelf\MyShelf\content\pictures\");
-            //PhysicalUploadedThumbnailsPath = Path.Combine(AppDomain.CurrentDomain.GetData("APPBASE").ToString(), @"C:\Users\Irene Lenqvist\Documents\GitHub\MyShelf\MyShelf\MyShelf\content\thumbnails\");
-
             var invalidChars = new string(Path.GetInvalidFileNameChars());
             SantizePath = new Regex(string.Format("[{0}]", Regex.Escape(invalidChars)));
         }
-
     }
 }

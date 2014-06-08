@@ -8,7 +8,7 @@ namespace MyShelf.Model
     /// Klass för hantering av genreuppgifter.
     public class Types
     {
-        // Egenskapernas namn och typ ges av tabellen Genre i databasen.
+        // Egenskapernas namn och typ ges av tabellen Type i databasen.
 
         public int TypeID { get; set; }
 

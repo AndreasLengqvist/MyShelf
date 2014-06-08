@@ -58,14 +58,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Pages\AdminLogin.aspx" />
     <Content Include="Pages\ImageHandling.aspx" />
-    <Content Include="Pages\SharedPages\background.png" />
     <Content Include="Pages\SharedPages\backbutton.png" />
+    <Content Include="Pages\SharedPages\facebook.png" />
+    <Content Include="Pages\SharedPages\facebookhover.png" />
+    <Content Include="Pages\SharedPages\loghover.png" />
+    <Content Include="Pages\SharedPages\login.png" />
+    <Content Include="Pages\SharedPages\login_button.png" />
+    <Content Include="Pages\SharedPages\logo.png" />
+    <Content Include="Pages\SharedPages\logout.png" />
     <Content Include="Pages\SharedPages\publish.js" />
-    <Content Include="Pages\SharedPages\publishbutton.png" />
     <Content Include="Pages\SharedPages\publish_button.png" />
+    <Content Include="Pages\SharedPages\real_publish_button.png" />
     <Content Include="Pages\SharedPages\Reset.css" />
+    <Content Include="Pages\SharedPages\savebutton.png" />
     <Content Include="Pages\SharedPages\StyleSheet.css" />
     <Content Include="Pages\Shelf.aspx" />
     <Content Include="Web.config">
@@ -87,13 +93,6 @@
     <Compile Include="Model\Publication.cs" />
     <Compile Include="Model\Service.cs" />
     <Compile Include="Model\Type.cs" />
-    <Compile Include="Pages\AdminLogin.aspx.cs">
-      <DependentUpon>AdminLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\AdminLogin.aspx.designer.cs">
-      <DependentUpon>AdminLogin.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\ImageHandling.aspx.cs">
       <DependentUpon>ImageHandling.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -119,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\SharedPages\MasterPage.Master" />
+    <Content Include="Pages\SharedPages\SecureDownloadManager.log" />
     <None Include="Properties\PublishProfiles\MyShelf.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

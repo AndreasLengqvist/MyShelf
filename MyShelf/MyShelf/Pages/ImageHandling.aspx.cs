@@ -47,7 +47,7 @@ namespace MyShelf.Pages
         }
 
 
-        // Tar ID:t från den valda filmen och hämtar databaseninformationen från denna. Vid fel fångas det upp och visas i Error-summaryn.
+        // Tar ID:t från den valda publikationen och hämtar databaseninformationen från denna.
         public MyShelf.Model.Publication PubFormView_GetItem([RouteData]int id)
         {
             try
